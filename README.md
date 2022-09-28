@@ -1,8 +1,8 @@
-# CS691 - Project 1
+# CS691: Project 1
  
-The complete repository for CS691 Project 1
+The complete repository for CS691: Project 1
 
-## Project Application: Online Art Gallery - The Chernak Art Gallery
+## Project Application: Online Art Gallery - _The Chernak Art Gallery_
 
 This repository will potentially change over the lifetime of the production of The Chernak Art Gallery website.
 
