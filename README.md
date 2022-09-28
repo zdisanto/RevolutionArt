@@ -9,18 +9,18 @@ This is Part 1 of a two-semester Capstone course that emphasizes software engine
 ## Project Application: Online Art Gallery - The Chernak Art Gallery
 
 ## Team Members: 
-**__Project Manager:__** Zo DiSanto
+**_Project Manager:_** Zo DiSanto
 
-**__Project Owner:__** Melika Zandikarimi
+**_Project Owner:_** Melika Zandikarimi
 
-**__Business Analyst:__** Jianan Jiang
+**_Business Analyst:_** Jianan Jiang
 
-**__Lead Developer:__** Kishore Kanchan
+**_Lead Developer:_** Kishore Kanchan
 
-**__Developer:__** Shanshan Li
+**_Developer:_** Shanshan Li
 
-**__Lead DBA:__** Rufan Mirganiyev
+**_Lead DBA:_** Rufan Mirganiyev
 
-**__QA Analyst:__** Louis Ngo
+**_QA Analyst:_** Louis Ngo
 
-**__Tester:__** Louis Ngo
+**_Tester:_** Louis Ngo
