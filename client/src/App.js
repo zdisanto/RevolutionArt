@@ -1,10 +1,12 @@
 import React from 'react';
 import {Typography, Divider} from '@material-ui/core';
 
+import Navbar from './components/Navbar/Navbar';
+
 const App = () => {
     return (
         <div>
-            <Typography variant="body1"><strong>Navbar</strong></Typography>
+            <Navbar />
             <Divider style={{ margin: '20px 0' }} />
             <Typography variant="body1"><strong>Carousel</strong></Typography>
             <Divider style={{ margin: '20px 0' }} />
