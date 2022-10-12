@@ -18,9 +18,9 @@ This is Part 1 of a two-semester Capstone course that emphasizes software engine
 
 **_Business Analyst:_** Jianan Jiang
 
-**_Lead Developer:_** Kishore Kanchan
+**_Lead Developer:_** Shanshan Li
 
-**_Developer:_** Shanshan Li
+**_Developer:_** Kishore Kanchan
 
 **_Lead DBA:_** Rufan Mirganiyev
 
