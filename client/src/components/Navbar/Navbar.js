@@ -13,7 +13,8 @@ const Navbar = () => {
             <img src={text} alt="icon" height="45px" />
             <img className={classes.image} src={logo} alt="icon" height="40px" />
             <Toolbar className={classes.toolbar}>
-                <Button variant="contained" color="primary">Sign In</Button>
+                <Button variant="contained" color="primary">Sign In / Register</Button>
+                <Button variant="outlined">Add</Button>
             </Toolbar>
         </AppBar>
   );

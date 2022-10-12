@@ -1,23 +1,14 @@
 import React from 'react';
-import {Typography, Divider} from '@material-ui/core';
+import { Container } from '@material-ui/core';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
     return (
-        <div>
+        <Container maxWidth="xl">
             <Navbar />
-            <Divider style={{ margin: '20px 0' }} />
-            <Typography variant="body1"><strong>Carousel</strong></Typography>
-            <Divider style={{ margin: '20px 0' }} />
-            <Typography variant="body1"><strong>Shop by catergory</strong></Typography>
-            <Divider style={{ margin: '20px 0' }} />
-            <Typography variant="body1"><strong>New Arrival</strong></Typography>
-            <Divider style={{ margin: '20px 0' }} />
-            <Typography variant="body1"><strong>Discover</strong></Typography>
-            <Divider style={{ margin: '20px 0' }} />
-            <Typography variant="body1"><strong>Other</strong></Typography>
-        </div>
+        </Container>
     );
 }
 
