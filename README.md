@@ -24,6 +24,6 @@ This is Part 1 of a two-semester Capstone course that emphasizes software engine
 
 **_Lead DBA:_** Rufan Mirganiyev
 
-**_QA Analyst:_** Louis Ngo
+**_QA Analyst:_** Louise Ngo
 
-**_Tester:_** Louis Ngo
+**_Tester:_** Louise Ngo
