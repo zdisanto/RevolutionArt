@@ -2,9 +2,9 @@
  
 The complete repository for CS691: Project 1
 
-## Project Application: Online Art Gallery - _The Chernak Art Gallery_
+## Project Application: Online Art Gallery - _Art Revolution_
 
-This repository will potentially change over the lifetime of the production of _The Chernak Art Gallery_ website.
+This repository will potentially change over the lifetime of the production of _Art Revolution_ website.
 
 ## Course Description:
 
