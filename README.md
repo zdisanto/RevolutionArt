@@ -2,9 +2,9 @@
  
 The complete repository for CS691: Project 1
 
-## Project Application: Online Art Gallery - _The Chernak Art Gallery_
+## Project Application: Online Art Gallery - _Revolution Art_
 
-This repository will potentially change over the lifetime of the production of _The Chernak Art Gallery_ website.
+This repository will potentially change over the lifetime of the production of _Revolution Art_ website.
 
 ## Course Description:
 
@@ -24,6 +24,6 @@ This is Part 1 of a two-semester Capstone course that emphasizes software engine
 
 **_Lead DBA:_** Rufan Mirganiyev
 
-**_QA Analyst:_** Louis Ngo
+**_QA Analyst:_** Louise Ngo
 
-**_Tester:_** Louis Ngo
+**_Tester:_** Louise Ngo
