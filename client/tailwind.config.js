@@ -87,7 +87,12 @@ module.exports = {
   },
   variants: {
     // backgroundColor: ['active'],
-    extend: {},
+    extend: {
+      visibility: ['hover'],
+      transitionDuration: ['hover'],
+      transitionTimingFunction: ['hover'],
+      transform: ['hover']
+    },
   },
   plugins: [],
 };

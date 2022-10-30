@@ -1,7 +1,6 @@
 import { Navigate } from "react-router-dom";
 
 import Auth from "../pages/Auth/Auth";
-import Sidebar from "../components/Sidebar/Sidebar";
 
 import NewIn from "../pages/NewIn/NewIn";
 import Sale from "../pages/Sale";
