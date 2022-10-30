@@ -4,7 +4,7 @@ The complete repository for CS691: Project 1
 
 ## Project Application: Online Art Gallery - _Revolution Art_
 
-This repository will potentially change over the lifetime of the production of _Revolution Art_ website.
+This repository will potentially change over the lifetime of the production of _Revolution Art_.
 
 ## Course Description:
 
