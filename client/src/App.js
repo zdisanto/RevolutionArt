@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Header from './components/Header/Header';
+import Carousel from './components/Carousel/CarouselContainer';
 //import Auth from './pages/Auth/Auth'
 import Footer from './components/Footer/Footer';
 
@@ -14,6 +15,9 @@ const App = () => {
                     {/* below is Header */}
                     <div>
                         <Header />
+                    </div>
+                    <div>
+                        <Carousel/>
                     </div>
                     <div>
                         <Footer/>
