@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Header from './components/Header/Header';
-import Carousel from './components/Carousel/CarouselContainer';
+import CardsWellsh from './components/Cards/CardsWellsh';
 //import Auth from './pages/Auth/Auth'
 import Footer from './components/Footer/Footer';
 
@@ -17,7 +17,7 @@ const App = () => {
                         <Header />
                     </div>
                     <div>
-                        <Carousel/>
+                        <CardsWellsh/>
                     </div>
                     <div>
                         <Footer/>
