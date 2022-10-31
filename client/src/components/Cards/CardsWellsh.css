@@ -5,10 +5,13 @@
 
 h1 {
   text-align: Left;
-  margin-left: 125px;
+  margin-left: 120px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
 }
 span {
   color: orange;
+  font-family: 'Poppins', sans-serif;
 }
 
 .cards__container__wellsh {
