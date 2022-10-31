@@ -1,10 +1,18 @@
 import React from 'react'
 
+import {CiFacebook, CiInstagram, CiLinkedin, CiTwitter, CiYoutube} from "react-icons/ci";
+
 const Footer = () => {
   return (
     <div className='bg-gray-800'>
-      <div className='py-10 text-center text-white font-bold text-sm'>
-        RevolutionArt.com
+      <div className='py-5 text-white '>
+          <div className='flex justify-center py-3 text-2xl'>
+            <CiFacebook/>
+            <CiInstagram/> 
+            <CiLinkedin/>
+            <CiTwitter/>
+            <CiYoutube/>
+          </div>
       </div>
       <div className='flex px-40'>
         <div className='container'>
@@ -48,8 +56,8 @@ const Footer = () => {
         </div>
         </div>
       </div>
-      <div className='py-10 text-center text-white text-xs'>
-      © 2022 All rights reserved by RevolutionArt.com
+      <div className='text-center text-white py-5'>
+        <button className='text-xs right-8 bottom-8'>© 2022 All rights reserved by RevolutionArt.com</button>
       </div>
     </div>
   )
