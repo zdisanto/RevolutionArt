@@ -30,7 +30,7 @@ const Footer = () => {
           <div className='content'>
             {/*<h2 className='content_sub1'>02</h2>*/}
             <h3 className='content_sub2'>Customer Service</h3>
-            <p className='content_sub3'>Customers (galleries on the backend) are provided with an online customer service which answers their technical questions.</p>
+            <p className='content_sub3'>Customers (galleries on the backend) are provided with an online customer service which answers their technical yes yes yes questions.</p>
             <a className='content_sub4' herf="#">Read More</a>
           </div>
         </div>
@@ -50,7 +50,7 @@ const Footer = () => {
           <div className='content'>
             {/*<h2 className='content_sub1'>04</h2>*/}
             <h3 className='content_sub2'>Work with Us</h3>
-            <p className='content_sub3'>We welcome people who love art, technology and life to join our team. We, a diverse team, welcome everyone with a dream.</p>
+            <p className='content_sub3'>We welcome people who love art, technology and life to join our team. We, a diverse team, welcome everyone with a yes yes dream.</p>
             <a className='content_sub4' herf="#">Read More</a>
           </div>
         </div>

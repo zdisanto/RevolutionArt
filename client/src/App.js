@@ -2,30 +2,17 @@ import React from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Header from './components/Header/Header';
-import CardsWellsh from './components/Cards/CardsWellsh';
-//import Auth from './pages/Auth/Auth'
-import Footer from './components/Footer/Footer';
+import Home from './pages/Home/Home';
+import Auth from './pages/Auth/Auth';
 
 const App = () => {
-    
     return (
-        <div>
-            <BrowserRouter>
-                <div className="relative dark:bg-main-dark-bg">
-                    {/* below is Header */}
-                    <div>
-                        <Header />
-                    </div>
-                    <div>
-                        <CardsWellsh/>
-                    </div>
-                    <div>
-                        <Footer/>
-                    </div>
-                </div>
-            </BrowserRouter>
-        </div>
-        
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home/>} />
+                <Route path="/auth" element={<Auth />} />
+            </Routes>
+        </BrowserRouter>
     );
 }
 

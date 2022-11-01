@@ -34,10 +34,15 @@ const Header = () => {
                         <div className='group'>
                             <CiShoppingCart title='ShoppingCart'/>
                             <ul className='absolute py-1 invisible group-hover:visible transition duration-75 ease-in-out'>
-                                <li className=" text-center absolute text-xl overflow-auto h-56 right-0 top-0 bg-white p-3 w-72">
+                                <li className=" text-center absolute text-xl overflow-auto h-auto right-0 top-0 bg-white p-3 w-72">
                                     {/* divider */}
                                     <div className='px-3 py-3 text-sm text-center hover:bg-gray-100'>
-                                        <p><b className='underline'>Log In</b> to view your shopping bag!</p>
+                                        <p>
+                                        <Link to="/auth">
+                                            <b className='underline'>Login </b>
+                                        </Link>
+                                            to view your shopping bag!
+                                        </p>
                                     </div>
                                     {/* divider */}
                                 </li>
@@ -49,7 +54,7 @@ const Header = () => {
                         <div className='group'>
                             <CiMail title='Messages'/>
                             <ul className='absolute py-1 invisible group-hover:visible transition duration-75 ease-in-out'>
-                                <li className="absolute divide-y divide-gray-200 text-xl overflow-auto h-56 right-0 top-0 bg-white p-3 w-72">
+                                <li className="absolute divide-y divide-gray-200 text-xl overflow-auto h-auto right-0 top-0 bg-white p-3 w-72">
                                     <div>
                                         <p className='font-bold text-sm text-center pb-2'>Messages</p>
                                     </div>
@@ -74,11 +79,11 @@ const Header = () => {
                         </div>
                     </div>
                     {/* Profile */}
-                    <div className='flex pr-10 gap-5'>
+                    <div className='flex pr-10'>
                         <div className='group'>
                             <CiUser title='PersonalCenter' className='text-2xl'/>
                             <ul className='absolute py-1 invisible group-hover:visible transition duration-75 ease-in-out'>
-                            <li className="absolute divide-y divide-gray-200 text-xl overflow-auto h-56 right-0 top-0 bg-white p-3 w-72">
+                            <li className="absolute divide-y divide-gray-200 text-xl overflow-auto h-auto right-0 top-0 bg-white p-3 w-72">
                                 {/* settings */}
                                 <div className="flex h-20 mt-2 pb-2">
                                     <img className="rounded-full h-16 w-16" src={profile} alt="user-profile"/>
@@ -110,7 +115,7 @@ const Header = () => {
                                 {/* divider */}
                                 <div className='flex pl-6 py-2 hover:bg-gray-100'>
                                     <CiLocationOn src={profile} alt="user-profile"/>
-                                    <p className="text-sm pl-10">Address Management</p>
+                                    <p className="text-sm pl-10">Address Book</p>
                                 </div>
                                 {/* divider */}
                                 <div className='flex pl-6 py-2 hover:bg-gray-100'>
@@ -124,7 +129,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <nav className='flex bg-gray-800 text-white px-32 h-full'>
+            <nav className='flex bg-gray-800 text-white px-28 h-full'>
                 <ul className='flex gap-12 items-stretch h-full py-2'>
                     <li className='group'> 
                         <a className='btn'>New Arrials</a>
