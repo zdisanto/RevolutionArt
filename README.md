@@ -1,4 +1,4 @@
-# CS691: Project 1 & 2
+# CS691/2: Project 1 & 2
  
 The complete repository for CS691: Project 1 & CS 692: Research Project
 
