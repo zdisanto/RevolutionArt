@@ -15,18 +15,16 @@ This is Part 1 of a two-semester Capstone course that emphasizes software engine
 <!-- Students enrolled in Computer Science Project II will finish their project begun in Computer Science Project I and write a major report. When the report has been completed, each student will be expected to give an oral presentation and project demonstration before the committee. The project advisor will assign a grade for the work in consultation with the committee. This grade will also be assigned to Computer Science Project I. -->
 
 ## Team Members: 
-**_Project Manager:_** Zo DiSanto
+**_Project Manager:_** <a href="https://github.com/zdisanto">Zo DiSanto</a>
 
-**_Project Owner:_** Melika Zandikarimi
+**_Project Owner:_** <a href="https://github.com/M-Zandikarimi">Melika Zandikarimi</a>
 
-**_Business Analyst:_** Jianan Jiang
+**_Business Analyst:_** <a href="https://github.com/Jianan-Jiang316">Jianan Jiang</a>
 
-**_Lead Developer:_** Shanshan Li
+**_Lead Developer:_** <a href="https://github.com/sslcandoit">Shanshan Li</a>
 
-**_Developer:_** Kishore Kanchan
+**_Developer:_** <a href="https://github.com/kishore1521">Kishore Kanchan</a>
 
-**_Lead DBA:_** Rufan Mirganiyev
+**_Lead DBA:_** <a href="https://github.com/mirganiyevrufan">Rufan Mirganiyev</a>
 
-**_QA Analyst:_** Louise Ngo
-
-**_Tester:_** Louise Ngo
+**_QA Analyst & Tester:_** <a href="https://github.com/ntkchinh">Louise Ngo</a>
