@@ -1,4 +1,6 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useRef} from 'react';
+import {Error, ErrorOutline} from '@material-ui/icons';
+import Alert from '@mui/material/Alert';
 import {useForm} from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -21,6 +23,8 @@ const Auth = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const ref_login = useRef();
+  const ref_register = useRef();
 
   useEffect(() => {
     const initClient = () => {
@@ -36,13 +40,11 @@ const Auth = () => {
  
   const handleRegister = (data) => {
     //e.preventDefault();
-    console.log("开始注册");
-    dispatch(register(data, navigate));
+    dispatch(register(data, navigate, ref_register));
   };
   const handleLogin = (data) => {
     //e.preventDefault();
-    console.log("开始登录")
-    dispatch(login(data, navigate));
+    dispatch(login(data, navigate, ref_login));
   };
   const googleSuccess = async (res) => {
     const result = res?.profileObj;
@@ -110,6 +112,7 @@ const Auth = () => {
                             <div className="mt-6">
                                     <div className="mb-4">
                                         <button type="submit" className="font-thin text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out w-full bg-gray-700 hover:bg-gray-900 text-white focus:outline-none focus-visible:ring-2">SUBMIT</button>
+                                        <Alert icon={<Error/>} className='invisible mt-2' ref={ref_login} severity="error"></Alert>
                                     </div>
                             </div>
                             {/* google */}
@@ -183,6 +186,7 @@ const Auth = () => {
                             <div className="mt-6">
                                     <div className="mb-4">
                                         <button type="submit" className="font-thin text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out w-full bg-gray-700 hover:bg-gray-900 text-white focus:outline-none focus-visible:ring-2">SUBMIT</button>
+                                        <Alert icon={<ErrorOutline fontSize="inherit"/>} className='invisible mt-4' ref={ref_register} severity="error"></Alert>
                                     </div>
                             </div>
                         </form>

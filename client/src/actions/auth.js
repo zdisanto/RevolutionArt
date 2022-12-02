@@ -1,19 +1,20 @@
 import { AUTH } from '../constants/actionTypes';
 import * as api from '../api/index.js';
 
-export const login = (formData, router) => async (dispatch) => {
+export const login = (formData, router, ref) => async (dispatch) => {
   try {
     const { data } = await api.login(formData);
     dispatch({ type: AUTH, data });//store information to local storage
 
     router('/');
   } catch (error) {
-    alert(error);
+    ref.current.innerHTML = error.response.data.message;
+    ref.current.style.visibility="visible";
     console.log(error);
   }
 };
 
-export const register = (formData, router) => async (dispatch) => {
+export const register = (formData, router, ref) => async (dispatch) => {
   try {
     const { data } = await api.register(formData);
 
@@ -21,7 +22,8 @@ export const register = (formData, router) => async (dispatch) => {
 
     router('/');
   } catch (error) {
-    alert(error);
-    console.log(error);
-  }
+    ref.current.innerHTML = error.response.data.message;
+    ref.current.style.visibility="visible";
+    console.log(error.response.data.message);
+  } 
 };
