@@ -42,7 +42,7 @@ const Auth = () => {
   const handleLogin = (data) => {
     //e.preventDefault();
     console.log("开始登录")
-    dispatch(login(formData, navigate));
+    dispatch(login(data, navigate));
   };
   const googleSuccess = async (res) => {
     const result = res?.profileObj;

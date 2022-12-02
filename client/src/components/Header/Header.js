@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { CiCamera, CiMail, CiBellOn, CiWallet, CiSettings, CiCircleQuestion, CiHeart, CiDollar, CiLocationOn, CiSearch, CiShoppingCart, CiStar, CiUser, CiCircleChevDown } from "react-icons/ci";
+import { CiMail, CiWallet, CiSettings, CiCircleQuestion, CiHeart, CiDollar, CiLocationOn, CiSearch, CiShoppingCart, CiStar, CiUser, CiCircleChevDown } from "react-icons/ci";
 import { Avatar} from '@material-ui/core';
 
 import decode from 'jwt-decode';
@@ -19,8 +19,6 @@ const Header = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const activate= user?.result? true:false;
 
-    //console.log("我在header，当前用户是："+user);
-    //console.log(user?.result.imageUrl);
     const img = user?.result.imageUrl;
 
     const logout = () => {
