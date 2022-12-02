@@ -8,7 +8,7 @@ function IndividualIntervalsExample() {
     <Carousel>
       {/* <div class="carousel-inner"> */}
       <Carousel.Item interval={3000}>
-        <div class='item'>
+        <div className='item'>
         <img 
           className="d-block w-100"
           src="https://images.pexels.com/photos/7013725/pexels-photo-7013725.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"

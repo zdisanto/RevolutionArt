@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 //import dotenv from 'dotenv';
 
-//import userRouter from './routes/user.js';
+import userRouter from './routes/user.js';
 
 const app = express();
 //dotenv.config();
@@ -13,7 +13,7 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
-//app.use('/user', userRouter);
+app.use('/user', userRouter);
 
 const PORT = process.env.PORT || 5000;
 const CONNECTION_URL = 'mongodb+srv://cs691project:cs691project123@cluster0.pkauzdf.mongodb.net/?retryWrites=true&w=majority';

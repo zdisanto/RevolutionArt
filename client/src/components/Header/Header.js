@@ -1,22 +1,57 @@
-import React, { useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect} from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { CiCamera, CiMail, CiBellOn, CiWallet, CiSettings, CiCircleQuestion, CiHeart, CiDollar, CiLocationOn, CiSearch, CiShoppingCart, CiStar, CiUser, CiCircleChevDown } from "react-icons/ci";
+import { Avatar} from '@material-ui/core';
 
+import decode from 'jwt-decode';
+import { useDispatch } from 'react-redux';
+
+import * as actionType from '../../constants/actionTypes';
 import logo from '../../assets/icon.png';
 import text from '../../assets/revolutionArtWebpage.png';
-import profile from '../../assets/profile.jpg';
 
 const Header = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const location = useLocation();
     const [searchValue, setSearchValue] = useState('');
     const handleSearch = () =>{}
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+    const activate= user?.result? true:false;
+
+    //console.log("我在header，当前用户是："+user);
+    //console.log(user?.result.imageUrl);
+    const img = user?.result.imageUrl;
+
+    const logout = () => {
+        dispatch({ type: actionType.LOGOUT });
+    
+        navigate('/');
+    
+        setUser(null);
+      };
+
+    useEffect(() => {
+        const token = user?.token;
+    
+        if (token) {
+          const decodedToken = decode(token);
+    
+          if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+        }
+    
+        setUser(JSON.parse(localStorage.getItem('profile')));
+      },[location]);
 
     return (
         <div>
             <div className='flex flex-row max-h-28 min-h-28 px-6 justify-between bg-gray-100'>
+                {/* left */}
                 <Link to="/" className='flex gap-0 pl-10 items-center'>
                     <img src={logo} alt="icon" className='flex-auto h-16 pt-2'/>
                     <img src={text} alt="icon" className='flex-auto h-52'/>
                 </Link>
+                {/* middle */}
                 <div className='flex md:block pt-10 items-center'>
                     <form onSubmit={handleSearch}>
                         <input
@@ -27,8 +62,10 @@ const Header = () => {
                         />
                         <button onClick={handleSearch} className='md:right-5 right-6 top-5 border-gray-400 py-2 text-2xl text-gray-500 hover:text-black'><CiSearch /></button>
                     </form>
-                </div>
-                <div className="flex items-center cursor-pointer p-1">
+                </div>   
+                {/* right */}
+                {activate? (
+                    <div className="flex items-center cursor-pointer p-1">
                     {/* Shoppingcart */}
                     <div className='flex items-center pr-10 gap-5 text-2xl'>
                         <div className='group'>
@@ -37,12 +74,7 @@ const Header = () => {
                                 <li className=" text-center absolute text-xl overflow-auto h-auto right-0 top-0 bg-white p-3 w-72">
                                     {/* divider */}
                                     <div className='px-3 py-3 text-sm text-center hover:bg-gray-100'>
-                                        <p>
-                                        <Link to="/auth">
-                                            <b className='underline'>Login </b>
-                                        </Link>
-                                            to view your shopping bag!
-                                        </p>
+                                        <p>Oops! Your shopping cart is empty!</p>
                                     </div>
                                     {/* divider */}
                                 </li>
@@ -86,49 +118,62 @@ const Header = () => {
                             <li className="absolute divide-y divide-gray-200 text-xl overflow-auto h-auto right-0 top-0 bg-white p-3 w-72">
                                 {/* settings */}
                                 <div className="flex h-20 mt-2 pb-2">
-                                    <img className="rounded-full h-16 w-16" src={profile} alt="user-profile"/>
+                                    {img==undefined? (
+                                        <Avatar className='rounded-full h-16 w-16' alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.email.charAt(0)}</Avatar>
+                                    ):(
+                                        <img className="rounded-full h-16 w-16" src={user?.result.imageUrl} alt="user-profile"/>
+                                    )}
                                     <div className='pl-5 pt-2'>
-                                        <p className="font-bold text-sm">RevolutionArt</p>
-                                        <p className="text-gray-600 text-sm font-thin">revolutionart@gmail.com</p>
+                                        {img==undefined? (
+                                            <p className="font-bold text-sm">{user.result.email.slice(0,user.result.email.indexOf('@'))}</p>
+                                        ):(
+                                            <p className="font-bold text-sm">{user.result.givenName} {user.result.familyName}</p>
+                                        )}
+                                        <p className="text-gray-600 text-sm font-thin">{user.result.email}</p>
                                     </div>
                                 </div>
                                 {/* divider */}
                                 <div className='flex pl-6 py-2 hover:bg-gray-100'>
-                                    <CiSettings src={profile} alt="user-profile"/>
+                                    <CiSettings alt="user-profile"/>
                                     <p className="text-sm pl-10">Account Settings</p>
                                 </div>
                                 {/* divider */}
                                 <div className='flex pl-6 py-2 hover:bg-gray-100'>
-                                    <CiStar src={profile} alt="user-profile"/>
+                                    <CiStar alt="user-profile"/>
                                     <p className="text-sm pl-10">Favorites</p>
                                 </div>
                                 {/* divider */}
                                 <div className='flex pl-6 py-2 hover:bg-gray-100'>
-                                    <CiDollar src={profile} alt="user-profile"/>
+                                    <CiDollar alt="user-profile"/>
                                     <p className="text-sm pl-10">Transactions</p>
                                 </div>
                                 {/* divider */}
                                 <div className='flex pl-6 py-2 hover:bg-gray-100'>
-                                    <CiWallet src={profile} alt="user-profile"/>
+                                    <CiWallet alt="user-profile"/>
                                     <p className="text-sm pl-10">My Wallet</p>
                                 </div>
                                 {/* divider */}
                                 <div className='flex pl-6 py-2 hover:bg-gray-100'>
-                                    <CiLocationOn src={profile} alt="user-profile"/>
+                                    <CiLocationOn alt="user-profile"/>
                                     <p className="text-sm pl-10">Address Book</p>
                                 </div>
                                 {/* divider */}
                                 <div className='flex pl-6 py-2 hover:bg-gray-100'>
-                                    <CiCircleQuestion src={profile} alt="user-profile"/>
+                                    <CiCircleQuestion alt="user-profile"/>
                                     <p className="text-sm pl-10">Ask Help</p>
                                 </div>
                                 {/* divider */}
+                                <button className='flex pl-24 pr-32 py-2 text-white text-center text-sm text-bold bg-gray-800 hover:bg-black' onClick={logout}>Logout</button>
                             </li>
                             </ul>
                         </div>
+                    </div>             
                     </div>
-                </div>
+                ):(
+                    <Link className='flex items-center cursor-pointer p-1 hover:underline' to="/auth">Login/Register</Link>
+                )}
             </div>
+            {/* navBar */}
             <nav className='flex bg-gray-800 text-white px-28 h-full'>
                 <ul className='flex gap-12 items-stretch h-full py-2'>
                     <li className='group'> 
