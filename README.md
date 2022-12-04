@@ -8,6 +8,22 @@ The complete repository for CS691: Project 1
 
 This repository will potentially change over the lifetime of the production of _Revolution Art_.
 
+## Requirements to Run Handy Helper Locally
+Ensure you have the latest version of Node on your local machine. We recommend using Node Version Manager to install and manage multiple Node versions: NVM
+
+To run the client locally, from the client directory, run npm start. A server should start on localhost:3000/
+
+## Developing Locally
+
+Clone this repo to your local machine
+
+Before starting a new feature, run git pull to get the most up to date files.
+
+Make code changes to your local branch.
+
+To commit your changes locally, run git add ., then git commit -m 'message describing commit'.
+
+
 ## Course Descriptions:
 
 This is Part 1 of a two-semester Capstone course that emphasizes software engineering design through the use of abstraction, creativity, algorithmic problem-solving, programming, and computational thinking skills as well as solicits students’ knowledge and understanding of and ability to integrate learning from core and other courses into a culminating computer science experience wherein they conceive of and develop a practical software solution (business application) to a real problem of interest to a customer base.
