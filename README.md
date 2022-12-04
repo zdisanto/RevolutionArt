@@ -8,7 +8,7 @@ The complete repository for CS691: Project 1
 
 This repository will potentially change over the lifetime of the production of _Revolution Art_.
 
-## Requirements to Run Handy Helper Locally
+## Requirements to Run Revolution Art Locally
 Ensure you have the latest version of Node on your local machine. We recommend using Node Version Manager to install and manage multiple Node versions: NVM
 
 To run the client locally, from the client directory, run npm start. A server should start on localhost:3000/
