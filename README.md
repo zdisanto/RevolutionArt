@@ -17,11 +17,11 @@ To run the client locally, from the client directory, run npm start. A server sh
 
 Clone this repo to your local machine
 
-Before starting a new feature, run git pull to get the most up to date files.
+Before starting a new feature, run ```git pull``` to get the most up to date files.
 
 Make code changes to your local branch.
 
-To commit your changes locally, run git add ., then git commit -m 'message describing commit'.
+To commit your changes locally, run ```git add .```, then ```git commit -m '[message describing commit]'```.
 
 
 ## Course Descriptions:
