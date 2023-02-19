@@ -1,11 +1,12 @@
 pipeline {
   agent any
   stages {
-    dir('RevolutionArt/SourceCode/client'){
       stage('Install Dependencies & Build'){
         steps{
-          sh 'npm install'
-          sh 'npm run build'
+          dir('RevolutionArt/SourceCode/client'){
+            sh 'npm install'
+            sh 'npm run build'
+          }
         }
       }
       stage('Test'){
@@ -18,6 +19,5 @@ pipeline {
           sh 'deploying'
         }
       }
-    }
   }
 }
