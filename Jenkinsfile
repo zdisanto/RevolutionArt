@@ -3,7 +3,7 @@ pipeline {
   stages {
       stage('Install Dependencies & Build'){
         steps{
-          dir('RevolutionArt/SourceCode/client'){
+          dir('SourceCode/client'){
             sh 'npm install'
             sh 'npm run build'
           }
