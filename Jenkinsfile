@@ -1,8 +1,7 @@
 pipeline {
   agent any
-  
-  dir('RevolutionArt/SourceCode/client'){
-    stages {
+  stages {
+    dir('RevolutionArt/SourceCode/client'){
       stage('Install Dependencies & Build'){
         steps{
           sh 'npm install'
