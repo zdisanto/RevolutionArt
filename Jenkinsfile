@@ -4,7 +4,7 @@ pipeline {
       stage('Install Dependencies & Build'){
         steps{
           dir('SourceCode/client'){
-            sh 'npm install --legacy-peer-deps'
+            sh 'npm install'
             sh 'npm run build'
           }
         }
