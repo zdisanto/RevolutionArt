@@ -32,7 +32,7 @@ pipeline {
       stage('Install Dependencies & Build - frontend'){
         steps{
           dir('SourceCode/client'){
-            sh 'npm install --legacy-peer-deps'
+            sh 'npm install'
             sh 'npm run build'
             sh 'scp -r build/* /var/www/html'
           }
