@@ -20,11 +20,12 @@ pipeline {
                   }
         }
       }
-      stage('Install Dependencies & Build - backend'){
+      stage('Install Dependencies & run - backend'){
         steps{
           dir('SourceCode/server'){
             sh 'npm install'
-            sh 'npm start' 
+            sh 'pm2 start npm --name "my-backend" -- start'
+            sh 'pm2 save' 
           }
         }
       }
