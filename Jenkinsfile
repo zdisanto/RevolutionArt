@@ -24,7 +24,8 @@ pipeline {
         steps{
           dir('SourceCode/server'){
             sh 'npm install'
-            sh 'npm start'    
+            sh 'npm start' 
+          }
         }
       }
       stage('Install Dependencies & Build - frontend'){
