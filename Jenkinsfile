@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent {label "linux"}
   
   tools {nodejs "16.17.0"}
   
