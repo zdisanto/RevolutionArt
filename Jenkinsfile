@@ -1,14 +1,17 @@
 pipeline {
   agent any
   
-  tools {nodejs "16.17.0"}
+  tools {
+    nodejs "16.17.0"
+    pm2 "pm2"
+  }
   
   environment {
         AWS_DEFAULT_REGION = 'us-east-1'
   }
   
   stages {
-      stage('aws test') {
+      stage('Test Myy Web Server') {
          steps {
              withCredentials([[
                  $class: 'AmazonWebServicesCredentialsBinding', 
@@ -20,21 +23,21 @@ pipeline {
                   }
         }
       }
-      stage('Install Dependencies & run - backend'){
-        steps{
-          dir('SourceCode/server'){
-            sh 'npm install'
-            sh 'pm2 start npm --name "my-backend" -- start'
-            sh 'pm2 save' 
+      stage('Build & Deploy Node.js to web server') {
+        steps {
+          dir('SourceCode') {
+            sh 'scp -r server user@webserver:~'
+            sh 'ssh -o ConnectTimeout=10 user@webserver "cd server && pm2 delete my-app-backend || true"'
+            sh 'ssh -o ConnectTimeout=10 user@webserver "cd server && npm install && pm2 start npm --name my-app-backend -- start"'
           }
         }
       }
-      stage('Install Dependencies & Build - frontend'){
-        steps{
-          dir('SourceCode/client'){
-            sh 'npm install'
-            sh 'npm run build'
-            sh 'scp -r build/* /var/www/html'
+      stage('Build & Deploy React.js to web server') {
+        steps {
+          dir('SourceCode') {
+            sh 'scp -r client user@webserver:~'
+            sh 'ssh -o ConnectTimeout=10 user@webserver "cd client && pm2 delete my-app-frontend || true"'
+            sh 'ssh -o ConnectTimeout=10 user@webserver "cd client && npm install && npm run build & pm2 start npm --name my-app-frontend -- start"'
           }
         }
       }
