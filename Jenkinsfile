@@ -11,20 +11,29 @@ pipeline {
   }
   
   stages {
-      stage('Test My Web Server') {
-         steps {
-             withCredentials([[
-                 $class: 'AmazonWebServicesCredentialsBinding', 
-                  credentialsId: '027942b3-025d-4d47-b4f2-7b0dc0435d31',
-                  accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
-                  secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                    sh "echo $PATH"
-                    sh "export PATH=$PATH:/usr/local/bin"
-                    sh '/usr/local/bin/aws --version'  
-                    sh '/usr/local/bin/aws ec2 describe-instances'
-                  }
-        }
+    stage('Fetch'){
+      steps {
+        sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployBuildQa.py'
       }
+    }
+    
+  }
+  
+//   stages {
+//       stage('Test My Web Server') {
+//          steps {
+//              withCredentials([[
+//                  $class: 'AmazonWebServicesCredentialsBinding', 
+//                   credentialsId: '027942b3-025d-4d47-b4f2-7b0dc0435d31',
+//                   accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+//                   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+//                     sh "echo $PATH"
+//                     sh "export PATH=$PATH:/usr/local/bin"
+//                     sh '/usr/local/bin/aws --version'  
+//                     sh '/usr/local/bin/aws ec2 describe-instances'
+//                   }
+//         }
+//       }
 //       stage('Build & Deploy Node.js to web server') {
 //         steps {
 //           dir('SourceCode') {
