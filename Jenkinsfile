@@ -15,7 +15,7 @@ pipeline {
          steps {
              withCredentials([[
                  $class: 'AmazonWebServicesCredentialsBinding', 
-                  credentialsId: '315dbf15-2320-4ea8-91f0-10edb85087d6',
+                  credentialsId: '027942b3-025d-4d47-b4f2-7b0dc0435d31',
                   accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
                   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     sh 'aws --version'  
