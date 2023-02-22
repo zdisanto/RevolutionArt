@@ -1,10 +1,10 @@
 pipeline {
   agent any
   
-  tools {
-    nodejs "16.17.0"
-    pm2 "pm2"
-  }
+//   tools {
+//     nodejs "16.17.0"
+//     pm2 "pm2"
+//   }
   
   environment {
         AWS_DEFAULT_REGION = 'us-east-1'
@@ -15,7 +15,7 @@ pipeline {
          steps {
              withCredentials([[
                  $class: 'AmazonWebServicesCredentialsBinding', 
-                  credentialsId: '35247357-c17d-4303-90d8-170ca161b229',
+                  credentialsId: '315dbf15-2320-4ea8-91f0-10edb85087d6',
                   accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
                   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     sh 'aws --version'  
@@ -23,29 +23,29 @@ pipeline {
                   }
         }
       }
-      stage('Build & Deploy Node.js to web server') {
-        steps {
-          dir('SourceCode') {
-            sh 'scp -r server user@webserver:~'
-            sh 'ssh -o ConnectTimeout=10 user@webserver "cd server && pm2 delete my-app-backend || true"'
-            sh 'ssh -o ConnectTimeout=10 user@webserver "cd server && npm install && pm2 start npm --name my-app-backend -- start"'
-          }
-        }
-      }
-      stage('Build & Deploy React.js to web server') {
-        steps {
-          dir('SourceCode') {
-            sh 'scp -r client user@webserver:~'
-            sh 'ssh -o ConnectTimeout=10 user@webserver "cd client && pm2 delete my-app-frontend || true"'
-            sh 'ssh -o ConnectTimeout=10 user@webserver "cd client && npm install & pm2 start npm --name my-app-frontend -- start"'
-          }
-        }
-      }
-      stage('Test'){
-        steps{
-          sh 'testing'
-        }
-      }    
+//       stage('Build & Deploy Node.js to web server') {
+//         steps {
+//           dir('SourceCode') {
+//             sh 'scp -r server user@webserver:~'
+//             sh 'ssh -o ConnectTimeout=10 user@webserver "cd server && pm2 delete my-app-backend || true"'
+//             sh 'ssh -o ConnectTimeout=10 user@webserver "cd server && npm install && pm2 start npm --name my-app-backend -- start"'
+//           }
+//         }
+//       }
+//       stage('Build & Deploy React.js to web server') {
+//         steps {
+//           dir('SourceCode') {
+//             sh 'scp -r client user@webserver:~'
+//             sh 'ssh -o ConnectTimeout=10 user@webserver "cd client && pm2 delete my-app-frontend || true"'
+//             sh 'ssh -o ConnectTimeout=10 user@webserver "cd client && npm install & pm2 start npm --name my-app-frontend -- start"'
+//           }
+//         }
+//       }
+//       stage('Test'){
+//         steps{
+//           sh 'testing'
+//         }
+//       }    
     
 //     stage('Build & Deploy React.js to web server') {
 //         steps {
