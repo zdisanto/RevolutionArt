@@ -3,7 +3,7 @@ pipeline {
   
   tools {
     nodejs "16.17.0"
-    pm2 "pm2"
+//     pm2 "pm2"
   }
   
   environment {
