@@ -19,7 +19,7 @@ pipeline {
                   accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
                   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     sh "echo $PATH"
-                    sh "export PATH=$PATH:/usr/local/bin/aws"
+                    sh "export PATH=$PATH:/usr/local/bin"
                     sh 'aws --version'  
                     sh 'aws ec2 describe-instances'
                   }
