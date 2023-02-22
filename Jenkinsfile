@@ -18,6 +18,7 @@ pipeline {
                   credentialsId: '027942b3-025d-4d47-b4f2-7b0dc0435d31',
                   accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
                   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                    sh "echo $PATH"
                     sh "export PATH=$PATH:/usr/local/bin/aws"
                     sh 'aws --version'  
                     sh 'aws ec2 describe-instances'
