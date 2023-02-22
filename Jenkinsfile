@@ -19,6 +19,8 @@ pipeline {
     
   }
   
+}
+  
 //   stages {
 //       stage('Test My Web Server') {
 //          steps {
@@ -66,6 +68,6 @@ pipeline {
 //           }
 //         }
 //       }
-   }
-}
+   
+
 
