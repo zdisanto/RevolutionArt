@@ -1,14 +1,14 @@
 pipeline {
   agent any
   
-  tools {
-    nodejs "16.17.0"
-//     pm2 "pm2"
-  }
+//   tools {
+//     nodejs "16.17.0"
+// //     pm2 "pm2"
+//   }
   
-  environment {
-        AWS_DEFAULT_REGION = 'us-east-1'
-  }
+//   environment {
+//         AWS_DEFAULT_REGION = 'us-east-1'
+//   }
   
   stages {
 //       stage('Test My Web Server') {
