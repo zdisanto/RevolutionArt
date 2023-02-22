@@ -13,7 +13,9 @@ pipeline {
   stages {
     stage('Fetch'){
       steps {
+        sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
         sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployBuildQa.py'
+        
       }
     }
     
