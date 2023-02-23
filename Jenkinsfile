@@ -19,6 +19,11 @@ pipeline {
         
       }
     }
+    stage('Test'){
+         steps{
+          sh 'testing'
+         }
+    }
     
   }
   
