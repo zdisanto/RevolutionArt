@@ -11,7 +11,7 @@ pipeline {
   }
   
   stages {
-    stage('Fetch'){
+    stage('Build'){
       steps {
         sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
         sh 'pip3 install boto3 paramiko'
@@ -24,6 +24,13 @@ pipeline {
           sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
           sh 'pip3 install boto3 paramiko'
           sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/testing.py'
+         }
+    }
+     stage('Deploy'){
+         steps{
+          sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+          sh 'pip3 install boto3 paramiko'
+          sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployToNginx.py'
          }
     }
     
