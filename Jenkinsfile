@@ -23,7 +23,7 @@ pipeline {
          steps{
           sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
           sh 'pip3 install boto3 paramiko'
-          sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployBuildQa.py'
+          sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/testing.py'
          }
     }
     
