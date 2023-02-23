@@ -19,11 +19,13 @@ pipeline {
         
       }
     }
-//     stage('Test'){
-//          steps{
-//           echo 'testing'
-//          }
-//     }
+    stage('Test'){
+         steps{
+          sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+          sh 'pip3 install boto3 paramiko'
+          sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployBuildQa.py'
+         }
+    }
     
   }
   
