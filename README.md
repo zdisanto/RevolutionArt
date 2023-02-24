@@ -45,4 +45,3 @@ In CS692, students<!--enrolled in Computer Science Project II --> will finish th
 
 **_QA Analyst & Tester:_** <a href="https://github.com/ntkchinh">Louise Ngo</a>
 
-*****new content
