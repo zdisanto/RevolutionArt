@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { CiMail, CiWallet, CiSettings, CiCircleQuestion, CiHeart, CiDollar, CiLocationOn, CiSearch, CiShoppingCart, CiStar, CiUser, CiCircleChevDown } from "react-icons/ci";
+import { CiMail, CiWallet, CiSettings, CiCircleQuestion, CiDollar, CiLocationOn, CiSearch, CiShoppingCart, CiStar, CiUser } from "react-icons/ci";
+import {SiSellfy} from "react-icons/si";
 import { Avatar} from '@material-ui/core';
 
 import decode from 'jwt-decode';
@@ -43,13 +44,14 @@ const Header = () => {
 
     return (
         <div>
-            <div className='flex flex-row max-h-28 min-h-28 px-6 justify-between bg-gray-100'>
-                {/* left */}
+            {/* header */}
+            <div className='flex flex-row max-h-28 min-h-28 px-6 px-y-12 justify-between bg-gray-100'>
+                {/* icon & name */}
                 <Link to="/" className='flex gap-0 pl-10 items-center'>
                     <img src={logo} alt="icon" className='flex-auto h-16 pt-2'/>
                     <img src={text} alt="icon" className='flex-auto h-52'/>
                 </Link>
-                {/* middle */}
+                {/* search box */}
                 <div className='flex md:block pt-10 items-center'>
                     <form onSubmit={handleSearch}>
                         <input
@@ -61,7 +63,7 @@ const Header = () => {
                         <button onClick={handleSearch} className='md:right-5 right-6 top-5 border-gray-400 py-2 text-2xl text-gray-500 hover:text-black'><CiSearch /></button>
                     </form>
                 </div>   
-                {/* right */}
+                {/* as Buyer */}
                 {activate? (
                     <div className="flex items-center cursor-pointer p-1">
                     {/* Shoppingcart */}
@@ -131,10 +133,10 @@ const Header = () => {
                                     </div>
                                 </div>
                                 {/* divider */}
-                                <div className='flex pl-6 py-2 hover:bg-gray-100'>
+                                <Link to="/accountsettings" className='flex pl-6 py-2 hover:bg-gray-100'>
                                     <CiSettings alt="user-profile"/>
                                     <p className="text-sm pl-10">Account Settings</p>
-                                </div>
+                                </Link>
                                 {/* divider */}
                                 <div className='flex pl-6 py-2 hover:bg-gray-100'>
                                     <CiStar alt="user-profile"/>
@@ -168,8 +170,10 @@ const Header = () => {
                     </div>             
                     </div>
                 ):(
-                    <Link className='flex items-center cursor-pointer p-1 hover:underline' to="/auth">Login/Register</Link>
+                    <Link className='flex items-center cursor-pointer p-1 hover:underline' to="/auth">Register/Login</Link>
                 )}
+                {/* Seller center */}
+                <Link className='flex items-center cursor-pointer p-1 hover:underline' to="/sellercenter"><SiSellfy className='h-6 w-6'/></Link>
             </div>
             {/* navBar */}
             <nav className='flex bg-gray-800 text-white px-28 h-full'>

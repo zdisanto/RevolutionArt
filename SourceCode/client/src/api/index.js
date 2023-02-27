@@ -1,13 +1,25 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000' });
+const buyerAPI = axios.create({ baseURL: 'http://localhost:5000' });
 
-API.interceptors.request.use((req) => {
+buyerAPI.interceptors.request.use((req) => {
   if (localStorage.getItem('profile')) {
     req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
   }
   return req;
 });
 
-export const login = (formData) => API.post('/user/login', formData);
-export const register = (formData) => API.post('/user/register', formData);
+const sellerAPI = axios.create({ baseURL: 'http://localhost:5000' });
+
+sellerAPI.interceptors.request.use((req) => {
+  if (localStorage.getItem('seller_profile')) {
+    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('seller_profile')).token}`;
+  }
+  return req;
+});
+
+export const login = (formData) => buyerAPI.post('/user/login', formData);
+export const register = (formData) => buyerAPI.post('/user/register', formData);
+
+export const s_register = (formData) => sellerAPI.post('seller/s_register', formData);
+export const s_login = (formData) => sellerAPI.post('seller/s_login', formData);
