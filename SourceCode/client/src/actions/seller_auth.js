@@ -9,7 +9,7 @@ export const s_register = (formData, router, ref) => async (dispatch) => {
       dispatch({ type: S_AUTH, data });
   
       //once scuessful register, then go to login
-      router('/sellercenter/login');
+      router('/sellerAuth/login');
     } catch (error) {
       ref.current.innerHTML = error.response.data.message;
       ref.current.style.visibility="visible";
@@ -22,7 +22,7 @@ export const s_register = (formData, router, ref) => async (dispatch) => {
       const { data } = await api.s_login(formData);
       dispatch({ type: S_AUTH, data });//store information to local storage
   
-      router('/');
+      router('/sellerCenter');
     } catch (error) {
       ref.current.innerHTML = error.response.data.message;
       ref.current.style.visibility="visible";

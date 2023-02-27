@@ -8,6 +8,7 @@ import DeleteAccount from './pages/AccountSettings/DeleteAccount';
 import SellerCenter from './pages/SellerCenter/SellerCenter';
 import Slogin from './pages/SellerCenter/S_Login';
 import Sregister from './pages/SellerCenter/S_Register';
+import SellerManagement from './pages/SellerManagement/SellerManagement';
 
 const App = () => {
     return (
@@ -20,11 +21,12 @@ const App = () => {
                         <Route path="profile" element={<ProfileSettings />} />
                         <Route path="delete" element={<DeleteAccount />} />
                     </Route>
-                    <Route path="/sellercenter" element={<SellerCenter />} >
+                    <Route path="/sellerAuth" element={<SellerCenter />} >
                         <Route index element={<Navigate to={'login'} />}/>
                         <Route path="login" element={<Slogin />}/>
                         <Route path="register" element={<Sregister />} />
                     </Route>
+                    <Route path="/sellerCenter" element={<SellerManagement />} />
                 </Routes>
             </BrowserRouter>
     );

@@ -20,7 +20,7 @@ export const register = (formData, router, ref) => async (dispatch) => {
 
     dispatch({ type: AUTH, data });
 
-    router('/');
+    router('/auth');
   } catch (error) {
     ref.current.innerHTML = error.response.data.message;
     ref.current.style.visibility="visible";

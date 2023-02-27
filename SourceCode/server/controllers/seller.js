@@ -10,7 +10,7 @@ export const s_register = async (req, res) => {
   
     try {
       const oldSeller = await SellerModal.findOne({ email });
-      console.log("卖家注册，正在数据库找数据"+oldSeller);
+      console.log("Seller注册，正在数据库找数据"+oldSeller);
       if (oldSeller) return res.status(400).json({ message: "Seller already exists or change your email" });
 
       const hashedPassword = await bcrypt.hash(password, 12);
@@ -31,7 +31,7 @@ export const s_register = async (req, res) => {
   
     try {
       const oldSeller = await SellerModal.findOne({ email });
-      console.log("登录，正在数据库找数据"+oldSeller);
+      console.log("Seller登录，正在数据库找数据"+oldSeller);
       if (!oldSeller) return res.status(404).json({ message: "Seller doesn't exist, please register a seller account" });
   
       const isPasswordCorrect = await bcrypt.compare(password, oldSeller.password);

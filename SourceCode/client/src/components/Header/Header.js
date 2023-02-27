@@ -17,8 +17,12 @@ const Header = () => {
     const location = useLocation();
     const [searchValue, setSearchValue] = useState('');
     const handleSearch = () =>{}
+
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const activate= user?.result? true:false;
+
+    const [seller] = useState(JSON.parse(localStorage.getItem('seller_profile')));
+    const sellerActivate = seller?.result? true:false;
 
     const img = user?.result.imageUrl;
 
@@ -173,7 +177,7 @@ const Header = () => {
                     <Link className='flex items-center cursor-pointer p-1 hover:underline' to="/auth">Register/Login</Link>
                 )}
                 {/* Seller center */}
-                <Link className='flex items-center cursor-pointer p-1 hover:underline' to="/sellercenter"><SiSellfy className='h-6 w-6'/></Link>
+                <Link to={sellerActivate? "/sellerCenter" : "/sellerAuth"} className='flex items-center cursor-pointer p-1 hover:underline'><SiSellfy className='h-6 w-6'/></Link>
             </div>
             {/* navBar */}
             <nav className='flex bg-gray-800 text-white px-28 h-full'>
