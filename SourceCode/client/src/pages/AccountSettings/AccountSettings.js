@@ -1,14 +1,7 @@
-import { useState } from 'react';
 import { Outlet, NavLink, Link } from 'react-router-dom';
 import icon from '../../assets/icon.png';
 
 const AccountSettings = () => {
-  const [selectedLink, setSelectedLink] = useState('profile');
-
-  const handleLinkClick = (link) => {
-    setSelectedLink(link);
-  };
-
   const myActive ="bg-green-200";
 
   function highlight({isActive}){
@@ -24,10 +17,10 @@ const AccountSettings = () => {
             <img src={icon} alt="icon" className='h-20 mx-auto pt-2'/>
           </Link>
           <ul>
-            <li onClick={() => handleLinkClick('profile')} >
+            <li>
               <NavLink to="/accountsettings/profile" className={highlight} >Profile</NavLink>
             </li>
-            <li onClick={() => handleLinkClick('delete')} >
+            <li>
               <NavLink to="/accountsettings/delete" className={highlight} >Delete Account</NavLink>
             </li>
           </ul>

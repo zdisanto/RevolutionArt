@@ -14,12 +14,6 @@ const SellerManagement = () => {
   const [seller, setSeller] = useState(JSON.parse(localStorage.getItem('seller_profile')));
   const gallery = seller.result.gallery_name;
 
-  const [selectedLink, setSelectedLink] = useState('profile');
-
-  const handleLinkClick = (link) => {
-    setSelectedLink(link);
-  };
-
   const myActive ="bg-green-200";
 
   function highlight({isActive}){
@@ -43,15 +37,15 @@ const SellerManagement = () => {
             <img src={icon} alt="icon" className='h-20 mx-auto pt-2'/>
           </Link>
           <ul>
-            <li onClick={() => handleLinkClick('profile')} >
-              <NavLink className={highlight} >Dashboard</NavLink>
+            <li>
+              <NavLink to="/sellerCenter/dashboard" className={highlight} >Dashboard</NavLink>
             </li>
-            <li onClick={() => handleLinkClick('delete')} >
-              <NavLink className={highlight} >Delete Account</NavLink>
+            <li>
+              <NavLink to="/sellerCenter/delete" className={highlight} >Delete Account</NavLink>
             </li>
           </ul>
           <div class="flex justify-center" onClick={s_logout}>
-            <CiLogout class="absolute bottom-4 h-8 w-8 rounded-full hover:bg-gray-200" />
+            <CiLogout class="absolute bottom-4 h-8 w-8 rounded-l hover:bg-gray-200" />
           </div>
         </div>
         {/* display area */}

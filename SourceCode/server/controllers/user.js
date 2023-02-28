@@ -1,5 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import express from 'express';
+import mongoose from 'mongoose';
 
 import UserModal from "../models/user.js";
 const secret = 'test';
@@ -40,3 +42,13 @@ export const register = async (req, res) => {
     console.log(error);
   }
 };
+
+export const deleteUser = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No User with id: ${id}`);
+
+  await UserModal.findByIdAndRemove(id);
+
+  res.json({ message: "User deleted successfully." });
+}

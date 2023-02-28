@@ -10,6 +10,8 @@ const authReducer = (state = { authData: null }, action) => {
       localStorage.removeItem('profile');
   
       return { ...state, authData: null, loading: false, errors: null };
+    case actionType.DELETE:
+      localStorage.removeItem('profile');
     default:
       return state;
   }

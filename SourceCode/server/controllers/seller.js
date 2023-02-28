@@ -1,5 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import express from 'express';
+import mongoose from 'mongoose';
 
 import SellerModal from "../models/seller.js";
 
@@ -24,24 +26,34 @@ export const s_register = async (req, res) => {
       res.status(500).json({ message: "Something went wrong" });
       console.log(error);
     }
-  };
+};
 
-  export const s_login = async (req, res) => {
-    const { email, password } = req.body;
-  
-    try {
-      const oldSeller = await SellerModal.findOne({ email });
-      console.log("Seller登录，正在数据库找数据"+oldSeller);
-      if (!oldSeller) return res.status(404).json({ message: "Seller doesn't exist, please register a seller account" });
-  
-      const isPasswordCorrect = await bcrypt.compare(password, oldSeller.password);
-  
-      if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials - Incorrect Password" });
-  
-      const token = jwt.sign({ email: oldSeller.email, id: oldSeller._id }, secret, { expiresIn: "1h" });
-  
-      res.status(200).json({ result: oldSeller, token });
-    } catch (err) {
-      res.status(500).json({ message: "Something went wrong" });
-    }
-  };
+export const s_login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const oldSeller = await SellerModal.findOne({ email });
+    console.log("Seller登录，正在数据库找数据"+oldSeller);
+    if (!oldSeller) return res.status(404).json({ message: "Seller doesn't exist, please register a seller account" });
+
+    const isPasswordCorrect = await bcrypt.compare(password, oldSeller.password);
+
+    if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials - Incorrect Password" });
+
+    const token = jwt.sign({ email: oldSeller.email, id: oldSeller._id }, secret, { expiresIn: "1h" });
+
+    res.status(200).json({ result: oldSeller, token });
+  } catch (err) {
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};
+
+export const deleteSeller = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No Seller with id: ${id}`);
+
+  await SellerModal.findByIdAndRemove(id);
+
+  res.json({ message: "Seller deleted successfully." });
+}

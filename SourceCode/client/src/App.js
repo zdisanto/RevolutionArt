@@ -9,6 +9,8 @@ import SellerCenter from './pages/SellerCenter/SellerCenter';
 import Slogin from './pages/SellerCenter/S_Login';
 import Sregister from './pages/SellerCenter/S_Register';
 import SellerManagement from './pages/SellerManagement/SellerManagement';
+import Delete from './pages/SellerManagement/Delete';
+import Dashboard from './pages/SellerManagement/Dashboard';
 
 const App = () => {
     return (
@@ -26,7 +28,11 @@ const App = () => {
                         <Route path="login" element={<Slogin />}/>
                         <Route path="register" element={<Sregister />} />
                     </Route>
-                    <Route path="/sellerCenter" element={<SellerManagement />} />
+                    <Route path="/sellerCenter" element={<SellerManagement />} >
+                        <Route index element={<Navigate to={'dashboard'} />} />
+                        <Route path="dashboard" element={<Dashboard />} />
+                        <Route path="delete" element={<Delete />} />
+                    </Route>
                 </Routes>
             </BrowserRouter>
     );
