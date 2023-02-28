@@ -11,7 +11,7 @@ import * as actionType from '../../constants/actionTypes';
 import logo from '../../assets/icon.png';
 import text from '../../assets/revolutionArtWebpage.png';
 
-const Header = () => {
+const Header = ({ onButtonClick }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const location = useLocation();
@@ -173,11 +173,13 @@ const Header = () => {
                         </div>
                     </div>             
                     </div>
+                ):(sellerActivate? ( 
+                    <Link to="/sellerCenter" className="flex items-center cursor-pointer p-1 hover:underline">seller management</Link>
                 ):(
-                    <Link className='flex items-center cursor-pointer p-1 hover:underline' to="/auth">Register/Login</Link>
-                )}
-                {/* Seller center */}
-                <Link to={sellerActivate? "/sellerCenter" : "/sellerAuth"} className='flex items-center cursor-pointer p-1 hover:underline'><SiSellfy className='h-6 w-6'/></Link>
+                    <button className="bg-gray-300 hover:bg-gray-800 hover:text-white py-2 px-2 my-8 rounded" onClick={onButtonClick} >
+                        Register/Login
+                    </button>
+                ))}
             </div>
             {/* navBar */}
             <nav className='flex bg-gray-800 text-white px-28 h-full'>
