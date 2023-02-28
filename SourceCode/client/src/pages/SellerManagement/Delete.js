@@ -16,9 +16,10 @@ export default function Delete() {
   return (
     <div>
       <p>Do you understand that deleting your account will permanently delete all of your data, including messages, contacts, and other information associated with your account?</p>
+      <p>Do you understand that you cannot undo the delete action?</p>
       <button 
         type="submit" 
-        className="font-thin text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out w-full bg-gray-700 hover:bg-gray-900 text-white focus:outline-none focus-visible:ring-2"
+        className="font-thin text-sm inline-flex mt-6 items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out w-full bg-red-300 hover:bg-red-600 hover:font-bold text-white focus:outline-none focus-visible:ring-2"
         onClick={() => dispatch(s_delete(sellerId, navigate, ref_delete))}
       >
           DELETE

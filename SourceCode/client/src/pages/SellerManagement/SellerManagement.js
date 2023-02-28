@@ -14,7 +14,7 @@ const SellerManagement = () => {
   const [seller, setSeller] = useState(JSON.parse(localStorage.getItem('seller_profile')));
   const gallery = seller.result.gallery_name;
 
-  const myActive ="bg-green-200";
+  const myActive ="text-white bg-gray-600 w-full h-full flex items-center justify-center font-bold";
 
   function highlight({isActive}){
     return isActive? `list-group-item ${myActive}` : "list-group-item";
@@ -34,14 +34,14 @@ const SellerManagement = () => {
         {/* side bar */}
         <div className="w-1/4 h-screen p-4">
           <Link to="/">
-            <img src={icon} alt="icon" className='h-20 mx-auto pt-2'/>
+            <img src={icon} alt="icon" className='h-16 mt-10 mx-auto'/>
           </Link>
-          <ul>
-            <li>
-              <NavLink to="/sellerCenter/dashboard" className={highlight} >Dashboard</NavLink>
+          <ul className='mt-10'>
+            <li className='h-12 w-full flex border border-gray-600 items-center justify-center'>
+              <NavLink to="/sellerCenter/dashboard" className={highlight}>DASHBOARD</NavLink>
             </li>
-            <li>
-              <NavLink to="/sellerCenter/delete" className={highlight} >Delete Account</NavLink>
+            <li className='h-12 w-full flex border border-gray-600 items-center justify-center'>
+              <NavLink to="/sellerCenter/delete" className={highlight} >DELETE ACCOUNT</NavLink>
             </li>
           </ul>
           <div class="flex justify-center" onClick={s_logout}>
@@ -50,11 +50,11 @@ const SellerManagement = () => {
         </div>
         {/* display area */}
         <div className="w-3/4 h-screen bg-white">
-          <div className='flex bg-gray-200 w-full h-10'>
+          <div className='flex w-full h-20'>
             <p className='flex justify-center items-center w-3/4 text-xl font-bold'>Seller Management Center<IoStorefront className='ml-3'/></p>
-            <p className='flex justify-center items-center w-1/4'>Welcome,<span className='font-bold text-black ml-2'>{gallery}</span></p>
+            <p className='flex justify-center items-center  text-gray-500 text-sm w-1/4'>Welcome,<span className=' text-black ml-2'>{gallery}</span></p>
           </div>
-          <div className='w-full h-full bg-gray-100'>
+          <div className='h-full mr-10 rounded-xl bg-gray-100 pt-10 px-16'>
             <Outlet />
           </div>
         </div>
