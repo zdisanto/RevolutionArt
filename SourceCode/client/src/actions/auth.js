@@ -1,4 +1,4 @@
-import { AUTH, DELETE } from '../constants/actionTypes';
+import { AUTH, DELETE, UPDATE } from '../constants/actionTypes';
 import * as api from '../api/index.js';
 
 export const login = (formData, router, ref) => async (dispatch) => {
@@ -35,6 +35,18 @@ export const deleteUser = (id, router, ref) => async (dispatch) => {
     dispatch({ type: DELETE, payload: id});
     console.log("user is deleted!")
     router('/');
+  } catch (error) {
+    ref.current.innerHTML = error.response.data.message;
+    ref.current.style.visibility="visible";
+    console.log(error.response.data.message);
+  }
+}
+
+export const updateInfo = (id, updatedInfo, ref) => async (dispatch) => {
+  try {
+    const { data } = await api.updateInfo(id, updatedInfo);
+
+    dispatch({ type: UPDATE, payload: data });
   } catch (error) {
     ref.current.innerHTML = error.response.data.message;
     ref.current.style.visibility="visible";

@@ -21,6 +21,7 @@ sellerAPI.interceptors.request.use((req) => {
 export const login = (formData) => buyerAPI.post('/user/login', formData);
 export const register = (formData) => buyerAPI.post('/user/register', formData);
 export const deleteUser = (id) => buyerAPI.delete(`/user/${id}`);
+export const updateInfo = (id, updatedInfo) => buyerAPI.patch('/user/${id}', updatedInfo);
 
 export const s_register = (formData) => sellerAPI.post('/seller/s_register', formData);
 export const s_login = (formData) => sellerAPI.post('/seller/s_login', formData);

@@ -1,7 +1,10 @@
-import { Outlet, NavLink, Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Outlet, NavLink, Link, useParams } from 'react-router-dom';
 import icon from '../../assets/icon.png';
 
 const AccountSettings = () => {
+  const [user, setUser] = useState();
+
   const myActive ="bg-green-200";
 
   function highlight({isActive}){
