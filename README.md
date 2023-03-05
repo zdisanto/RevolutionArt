@@ -1,7 +1,5 @@
 # CS691 & CS692: Project 1 & 2
 <!-- # CS691: Project 1 -->
-
-***new content
  
 <!-- The complete repository for CS691: Project 1 -->
 The complete repository for CS691: Project 1 & CS692: Research Project 
@@ -47,4 +45,3 @@ In CS692, students<!--enrolled in Computer Science Project II --> will finish th
 
 **_QA Analyst & Tester:_** <a href="https://github.com/ntkchinh">Louise Ngo</a>
 
-******new content*****
