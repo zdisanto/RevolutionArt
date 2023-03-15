@@ -62,3 +62,28 @@ export const updateUserInfo = async (req, res) => {
 
   res.json(updatedInfo);
 }
+
+export const resetPwd = async (req, res) => {
+  const { email, password } = req.body;
+  console.log("正在更新密码2")
+
+  try {
+    //step 1
+    const oldUser = await UserModal.findOne({ email });
+    if (!oldUser) return res.status(404).json({ message: "Email address doesn't exist, please try again!" });
+    //step 2
+    const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
+    if (isPasswordCorrect) return res.status(400).json({ message: "Sorry, cannot use any old password" });
+    
+    const hashedPassword = await bcrypt.hash(password, 12);
+
+    const result = await UserModal.updateOne({ email}, {password: hashedPassword });
+
+    const token = jwt.sign( { email: result.email, id: result._id }, secret, { expiresIn: "1h" } );
+
+    res.status(200).json({ message: "Password updated sucessfully", token });
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+    console.log(error);
+  }
+};

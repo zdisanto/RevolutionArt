@@ -11,6 +11,7 @@ import Sregister from './pages/SellerCenter/S_Register';
 import SellerManagement from './pages/SellerManagement/SellerManagement';
 import Delete from './pages/SellerManagement/Delete';
 import Dashboard from './pages/SellerManagement/Dashboard';
+import ForgetPassword from './pages/ForgetPassword';
 
 const App = () => {
     return (
@@ -22,6 +23,7 @@ const App = () => {
                         <Route index element={<Navigate to={'profile'} />} />
                         <Route path="profile" element={<ProfileSettings />} />
                         <Route path="delete" element={<DeleteAccount />} />
+                        <Route path="resetPwd" element={<ForgetPassword />} />
                     </Route>
                     <Route path="/sellerAuth" element={<SellerCenter />} >
                         <Route index element={<Navigate to={'login'} />}/>
@@ -33,6 +35,7 @@ const App = () => {
                         <Route path="dashboard" element={<Dashboard />} />
                         <Route path="delete" element={<Delete />} />
                     </Route>
+                    <Route path="/forgetPwd" element={<ForgetPassword />} />
                 </Routes>
             </BrowserRouter>
     );

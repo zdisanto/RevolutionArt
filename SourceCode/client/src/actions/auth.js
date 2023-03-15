@@ -53,3 +53,19 @@ export const updateInfo = (id, updatedInfo, ref) => async (dispatch) => {
     console.log(error.response.data.message);
   }
 }
+
+export const resetPwd = async (formData, router, ref) => {
+  try {
+    console.log("将去更新密码1")
+    //await api.resetPwd(formData);
+    const { data } = await api.resetPwd(formData);
+
+    // dispatch({ type: AUTH, data });
+
+    router('/auth');
+  } catch (error) {
+    ref.current.innerHTML = error.response.data.message;
+    ref.current.style.visibility="visible";
+    console.log(error.response.data.message);
+  } 
+};
