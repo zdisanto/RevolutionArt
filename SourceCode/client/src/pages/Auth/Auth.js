@@ -14,7 +14,7 @@ import { register, login } from '../../actions/auth';
 import { AUTH } from '../../constants/actionTypes';
 
 const clientId = '1075004676615-o2kfd7afjtffl4iq8p9t4jbff2t9k330.apps.googleusercontent.com';
-const initialState = { email: '', password: '', confirmPassword: '' };
+const initialState = { email: '', password: '', confirmPassword: '', phone: '', username: ''};
 
 const Auth = () => {
   const [formData, setFormData] = useState(initialState);
@@ -181,6 +181,41 @@ const Auth = () => {
                                   />
                                 </div>
                                 {errors2.confirmPassword && <p className='text-red-600 text-xs'>{errors2.confirmPassword.message}</p>}
+                                {/* phone */}
+                                <div>
+                                        <label class="block text-sm font-medium mb-1" for="card-email">Phone</label>
+                                        <input 
+                                          name="phone"  
+                                          class="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
+                                          type="phone" 
+                                          placeholder="xxx-xxx-xxxx" 
+                                          onChange={handleChange}
+                                          {...register2("phone",
+                                            {
+                                              required: false,
+                                              pattern: /^\d{3}-\d{3}-\d{4}$/
+                                            })}
+                                        />
+                                </div>
+                                {errors2.phone && <p className='text-red-600 text-xs'>Please input valid 10-digit phone</p>}
+                                {/* username */}
+                                <div>
+                                        <label class="block text-sm font-medium mb-1" for="card-email">Username</label>
+                                        <input 
+                                          name="username"  
+                                          class="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
+                                          type="text" 
+                                          placeholder="username" 
+                                          onChange={handleChange}
+                                          {...register2("username",
+                                            {
+                                              required: false,
+                                              pattern: /^\w{1,10}$/
+
+                                            })}
+                                        />
+                                </div>
+                                {errors2.username && <p className='text-red-600 text-xs'>No more than 10 letter or digit</p>}
                             </div>
                             {/*Button*/}
                             <div className="mt-6">

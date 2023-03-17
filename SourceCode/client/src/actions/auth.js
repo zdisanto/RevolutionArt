@@ -1,4 +1,4 @@
-import { AUTH, DELETE, UPDATE } from '../constants/actionTypes';
+import { AUTH, DELETE, UPDATE, FETCH_USERINFO } from '../constants/actionTypes';
 import * as api from '../api/index.js';
 
 export const login = (formData, router, ref) => async (dispatch) => {
@@ -42,11 +42,26 @@ export const deleteUser = (id, router, ref) => async (dispatch) => {
   }
 }
 
-export const updateInfo = (id, updatedInfo, ref) => async (dispatch) => {
+export const getInfo = (id, ref) => async (dispatch) => {
+  try {
+    const user = await api.getInfo(id);
+    dispatch({ type: FETCH_USERINFO, user });
+    return user.data;
+  } catch (error) {
+    ref.current.innerHTML = error.response.data.message;
+    ref.current.style.visibility="visible";
+    console.log(error.response.data.message);
+  }
+}
+
+export const updateInfo = (id, updatedInfo, ref) => async (dispatch) =>{
   try {
     const { data } = await api.updateInfo(id, updatedInfo);
-
+    
     dispatch({ type: UPDATE, payload: data });
+
+    ref.current.innerHTML = "Sucessfully updated!";
+    ref.current.style.visibility="visible";
   } catch (error) {
     ref.current.innerHTML = error.response.data.message;
     ref.current.style.visibility="visible";
@@ -56,7 +71,6 @@ export const updateInfo = (id, updatedInfo, ref) => async (dispatch) => {
 
 export const resetPwd = async (formData, router, ref) => {
   try {
-    console.log("将去更新密码1")
     //await api.resetPwd(formData);
     const { data } = await api.resetPwd(formData);
 

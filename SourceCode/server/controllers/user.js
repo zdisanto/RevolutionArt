@@ -24,7 +24,7 @@ export const login = async (req, res) => {
 };
 
 export const register = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, phone, username } = req.body;
 
   try {
     const oldUser = await UserModal.findOne({ email });
@@ -32,9 +32,9 @@ export const register = async (req, res) => {
     
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    const result = await UserModal.create({ email, password: hashedPassword });
+    const result = await UserModal.create({ email, password: hashedPassword, phone, username });
 
-    const token = jwt.sign( { email: result.email, id: result._id }, secret, { expiresIn: "1h" } );
+    const token = jwt.sign( { email: result.email, id: result._id, phone: result.phone, username: result.username }, secret, { expiresIn: "1h" } );
 
     res.status(200).json({ result, token });
   } catch (error) {
@@ -53,6 +53,22 @@ export const deleteUser = async (req, res) => {
   res.json({ message: "User deleted successfully." });
 }
 
+export const getInfo = async (req, res) => {
+  const {id} = req.params;
+  try {
+    const oldUser = await UserModal.findOne({_id: id});
+    
+    if (oldUser){
+      res.status(200).json(oldUser);
+    } else {
+      res.status(404).json({ message: "User not found" });
+    } 
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+}
+
 export const updateUserInfo = async (req, res) => {
   const { id } = req.params;
   const newInfo = req.body;
@@ -60,7 +76,8 @@ export const updateUserInfo = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No User with id: ${id}`);
   const updatedInfo = await UserModal.findByIdAndUpdate(id, newInfo, { new: true});
 
-  res.json(updatedInfo);
+  console.log(updatedInfo);
+  res.status(200).json(updatedInfo);
 }
 
 export const resetPwd = async (req, res) => {
