@@ -40,7 +40,7 @@ const Auth = () => {
  
   const handleRegister = (data) => {
     //e.preventDefault();
-    dispatch(register(data, navigate, ref_register));
+    dispatch(register(data, ref_register));
   };
   const handleLogin = (data) => {
     //e.preventDefault();

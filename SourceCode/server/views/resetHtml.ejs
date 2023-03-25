@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var status = '<%- JSON.stringify(status) %>';
+      if (JSON.parse(status) == "verified") {
+        if (confirm("Do u want to login?")) {
+          window.location.href = "http://localhost:3000/sellerAuth/login";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1><%= email%></h1>
+      <form action="" method="post">
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="password"
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$"
+          title="Please enter a password with at least one digit, one lowercase letter, one uppercase letter, and between 6 and 15 characters."
+          required
+        /><br />
+        <input
+          type="password"
+          name="confirm-password"
+          id="confirm-password"
+          placeholder="confirm-password"
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$"
+          title="Please enter a password with at least one digit, one lowercase letter, one uppercase letter, and between 6 and 15 characters."
+          required
+        /><br />
+        <span id="password-error" style="color: red;"></span><br />
+        <input type="submit" value="submit" onclick="return validatePassword()" />
+      </form>
+    </div>
+    <script>
+      function validatePassword() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirm-password").value;
+        if (password !== confirmPassword) {
+          document.getElementById("password-error").innerHTML =
+            "Password and confirm password do not match!";
+          return false;
+        } else {
+          return true;
+        }
+      }
+    </script>
+  </body>
+  </html>

@@ -28,3 +28,5 @@ export const resetPwd = (formData) => buyerAPI.patch('/user/resetPwd', formData)
 export const s_register = (formData) => sellerAPI.post('/seller/s_register', formData);
 export const s_login = (formData) => sellerAPI.post('/seller/s_login', formData);
 export const deleteSeller = (id) => sellerAPI.delete(`/seller/${id}`);
+export const forgotPwd = (email) => sellerAPI.post('/seller/forgotPwd', email);
+//export const forgotPwd_getLink = (id, token, email) => sellerAPI.get(`/seller/forgotPwd/${id}/${token}`, email);

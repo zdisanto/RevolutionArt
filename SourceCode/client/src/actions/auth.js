@@ -14,13 +14,13 @@ export const login = (formData, router, ref) => async (dispatch) => {
   }
 };
 
-export const register = (formData, router, ref) => async (dispatch) => {
+export const register = (formData, ref) => async (dispatch) => {
   try {
     const { data } = await api.register(formData);
 
     dispatch({ type: AUTH, data });
-
-    router('/auth');
+    ref.current.innerHTML = "You signed up scuessfully! Please sign in!";
+    ref.current.style.visibility="visible";
   } catch (error) {
     ref.current.innerHTML = error.response.data.message;
     ref.current.style.visibility="visible";

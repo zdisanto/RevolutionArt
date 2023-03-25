@@ -28,7 +28,7 @@ const SellerCenter = () => {
             <div className='flex flex-col w-4/6 h-screen'>
                 <nav className='flex h-16 justify-center items-center'>
                     <span className='flex w-1/2 h-full justify-center items-center text-black font-bold cursor-pointer' >
-                        <NavLink to="/sellerAuth/login" className={highlight} onClick={() => handleLinkClick('login')}>LOGIN</NavLink>
+                        <NavLink to="/sellerAuth/login" className={highlight} onClick={() => {handleLinkClick('login')}}>LOGIN</NavLink>
                     </span>
                     <span className='flex w-1/2 h-full justify-center items-center text-black font-bold cursor-pointer' >
                         <NavLink to="/sellerAuth/register" className={highlight} onClick={() => handleLinkClick('register')}>REGISTER</NavLink>

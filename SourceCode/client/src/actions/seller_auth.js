@@ -43,3 +43,29 @@ export const s_register = (formData, router, ref) => async (dispatch) => {
       console.log(error.response.data.message);
     }
   }
+
+  export const forgotPwd = async (email, ref) =>{
+    try {
+      await api.forgotPwd(email);
+
+      ref.current.innerHTML = "link of reset password was sent to your email! The link expire in 5 minutes!";
+      ref.current.style.visibility="visible";
+    } catch (error) {
+      ref.current.innerHTML = error.response.data.message;
+      ref.current.style.visibility="visible";
+      console.log(error.response.data.message);
+    }
+  }
+
+  // export const forgotPwd_getLink = async (id, token, ref) =>{
+  //   try {
+  //     await api.forgotPwd_getLink(id, token);
+
+  //     ref.current.innerHTML = "link Verfied!";
+  //     ref.current.style.visibility="visible";
+  //   } catch (error) {
+  //     ref.current.innerHTML = error.response.data.message;
+  //     ref.current.style.visibility="visible";
+  //     console.log(error.response.data.message);
+  //   }
+  // }
