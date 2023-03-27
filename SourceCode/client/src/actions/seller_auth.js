@@ -1,4 +1,4 @@
-import { S_AUTH, S_DELETE } from '../constants/actionTypes';
+import { S_AUTH, S_DELETE, FETCH_USERINFO, UPDATE } from '../constants/actionTypes';
 import * as api from '../api/index.js';
 
 
@@ -57,15 +57,29 @@ export const s_register = (formData, router, ref) => async (dispatch) => {
     }
   }
 
-  // export const forgotPwd_getLink = async (id, token, ref) =>{
-  //   try {
-  //     await api.forgotPwd_getLink(id, token);
-
-  //     ref.current.innerHTML = "link Verfied!";
-  //     ref.current.style.visibility="visible";
-  //   } catch (error) {
-  //     ref.current.innerHTML = error.response.data.message;
-  //     ref.current.style.visibility="visible";
-  //     console.log(error.response.data.message);
-  //   }
-  // }
+  export const s_getInfo = (id, ref) => async (dispatch) => {
+    try {
+      const seller = await api.s_getInfo(id);
+      dispatch({ type: FETCH_USERINFO, seller });
+      return seller.data;
+    } catch (error) {
+      ref.current.innerHTML = error.response.data.message;
+      ref.current.style.visibility="visible";
+      console.log(error.response.data.message);
+    }
+  }
+  
+  export const s_updateInfo = (id, updatedInfo, ref) => async (dispatch) =>{
+    try {
+      const { data } = await api.s_updateInfo(id, updatedInfo);
+      
+      dispatch({ type: UPDATE, payload: data });
+  
+      ref.current.innerHTML = "Sucessfully updated!";
+      ref.current.style.visibility="visible";
+    } catch (error) {
+      ref.current.innerHTML = error.response.data.message;
+      ref.current.style.visibility="visible";
+      console.log(error.response.data.message);
+    }
+  }

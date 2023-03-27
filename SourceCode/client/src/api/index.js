@@ -29,4 +29,5 @@ export const s_register = (formData) => sellerAPI.post('/seller/s_register', for
 export const s_login = (formData) => sellerAPI.post('/seller/s_login', formData);
 export const deleteSeller = (id) => sellerAPI.delete(`/seller/${id}`);
 export const forgotPwd = (email) => sellerAPI.post('/seller/forgotPwd', email);
-//export const forgotPwd_getLink = (id, token, email) => sellerAPI.get(`/seller/forgotPwd/${id}/${token}`, email);
+export const s_getInfo = (id) => sellerAPI.get(`/seller/${id}`);
+export const s_updateInfo = (id, updatedInfo) => sellerAPI.patch(`/seller/${id}`, updatedInfo);

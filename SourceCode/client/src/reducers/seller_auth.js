@@ -10,8 +10,15 @@ const authReducer = (state = { authData: null }, action) => {
       localStorage.removeItem('seller_profile');
   
       return { ...state, authData: null, loading: false, errors: null };
-      case actionType.S_DELETE:
+    case actionType.S_DELETE:
         localStorage.removeItem('seller_profile');
+      return { ...state, authData: null, loading: false, errors: null };
+    case actionType.UPDATE:
+    
+      return { ...state, authData: action.payload, loading: false, errors: null};
+    case actionType.FETCH_USERINFO:
+          
+      return { ...state, authData: {...state.authData, ...action.payload}, loading: false, errors: null};
     default:
       return state;
   }

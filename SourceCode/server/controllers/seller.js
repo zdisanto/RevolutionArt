@@ -129,3 +129,30 @@ export const forgotPwd_resetPwd = async (req, res) => {
     res.send({status:"Something went wrong!"});
   }
 }
+
+export const getInfo = async (req, res) => {
+  const {id} = req.params;
+  try {
+    const oldSeller = await SellerModal.findOne({_id: id});
+    
+    if (oldSeller){
+      res.status(200).json(oldSeller);
+    } else {
+      res.status(404).json({ message: "Seller not found" });
+    } 
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+}
+
+export const updateUserInfo = async (req, res) => {
+  const { id } = req.params;
+  const newInfo = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No Seller with id: ${id}`);
+  const updatedInfo = await SellerModal.findByIdAndUpdate(id, newInfo, { new: true});
+
+  console.log(updatedInfo);
+  res.status(200).json(updatedInfo);
+}

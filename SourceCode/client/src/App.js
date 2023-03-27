@@ -11,6 +11,7 @@ import Sregister from './pages/SellerCenter/S_Register';
 import SellerManagement from './pages/SellerManagement/SellerManagement';
 import Delete from './pages/SellerManagement/Delete';
 import Dashboard from './pages/SellerManagement/Dashboard';
+import GeneralInfo from './pages/SellerManagement/GeneralInfo';
 import ForgetPassword from './pages/ForgetPassword';
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
                     <Route path="/sellerCenter" element={<SellerManagement />} >
                         <Route index element={<Navigate to={'dashboard'} />} />
                         <Route path="dashboard" element={<Dashboard />} />
+                        <Route path="generalInfo" element={<GeneralInfo />} />
                         <Route path="delete" element={<Delete />} />
                     </Route>
                     <Route path="/forgetPwd" element={<ForgetPassword />} />

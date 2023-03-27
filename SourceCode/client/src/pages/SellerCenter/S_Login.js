@@ -77,7 +77,7 @@ const S_Login = () => {
         <div className="mt-6">
           <div className="mb-4">
               <button type="submit" className="font-thin text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out w-full bg-gray-700 hover:bg-gray-900 text-white focus:outline-none focus-visible:ring-2">SUBMIT</button>
-              <Alert icon={<Error/>} className='invisible mt-2' severity="error"></Alert>
+              <Alert className='invisible mt-2' ref={ref_login} severity="error"></Alert>
           </div>
         </div>
       </form>
@@ -118,8 +118,8 @@ const S_Login = () => {
                   {/*Button*/}
                   <div className="mt-6">
                     <div className="mb-4">
-                        <button type="submit" className="font-thin text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out w-full bg-blue-400 hover:bg-blue-600 text-white focus:outline-none focus-visible:ring-2">SUBMIT</button>
-                        <Alert icon={<Error/>} className='invisible mt-2' ref={ref_verifyEmail} severity="error"></Alert>
+                        <button type="submit" className="font-thin text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out w-full bg-blue-400 hover:bg-blue-600 text-white focus:outline-none focus-visible:ring-2">Click to Send a Reset Link</button>
+                        <Alert icon={<Error/>} className='invisible mt-2' ref={ref_verifyEmail} severity="info"></Alert>
                     </div>
                   </div>
                 </form>
