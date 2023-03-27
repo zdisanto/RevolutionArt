@@ -4,6 +4,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 import UserModal from "../models/user.js";
+import user from "../models/user.js";
 const secret = 'test';
 
 export const login = async (req, res) => {
@@ -81,22 +82,24 @@ export const updateUserInfo = async (req, res) => {
 }
 
 export const resetPwd = async (req, res) => {
-  const { email, password } = req.body;
-  console.log("正在更新密码2")
+  const { id } =req.params;
+  const { oldPassword, password, confirmPassword} = req.body;
 
   try {
     //step 1
-    const oldUser = await UserModal.findOne({ email });
-    if (!oldUser) return res.status(404).json({ message: "Email address doesn't exist, please try again!" });
+    const oldUser = await UserModal.findOne({ _id: id });
+    const isSame = await bcrypt.compare(oldPassword, oldUser.password);
+    if(!isSame) return res.status(400).json({message:"The old password is not correct, please re-enter it!"});
+
     //step 2
     const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
-    if (isPasswordCorrect) return res.status(400).json({ message: "Sorry, cannot use any old password" });
+    if (isPasswordCorrect) return res.status(400).json({ message: "Sorry, cannot re-use any old password" });
     
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    const result = await UserModal.updateOne({ email}, {password: hashedPassword });
+    const result = await UserModal.updateOne({ _id: id}, {password: hashedPassword });
 
-    const token = jwt.sign( { email: result.email, id: result._id }, secret, { expiresIn: "1h" } );
+    const token = jwt.sign( { id: result._id }, secret, { expiresIn: "1h" } );
 
     res.status(200).json({ message: "Password updated sucessfully", token });
   } catch (error) {

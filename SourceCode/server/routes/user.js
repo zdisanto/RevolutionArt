@@ -3,7 +3,7 @@ const router = express.Router();
 
 import { register, login, deleteUser, updateUserInfo, resetPwd, getInfo } from "../controllers/user.js";
 
-router.patch("/resetPwd", resetPwd);
+router.patch("/resetPwd/:id", resetPwd);
 router.post("/register", register);
 router.post("/login", login);
 router.delete("/:id", deleteUser);

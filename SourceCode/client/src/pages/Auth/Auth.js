@@ -106,7 +106,7 @@ const Auth = () => {
                                         />
                                 </div>
                                 {errors1.password && <p className='text-red-600 text-xs'>Password must contains capital letter, lowercase letter, digit and the length bettwen 6 and 15</p>}
-                                <Link to='/forgetPwd' className="mt-4 block text-sm text-center font-medium text-gray-400 hover:underline"> Forgot your password? </Link>
+                                {/* <Link to='/forgetPwd' className="mt-4 block text-sm text-center font-medium text-gray-400 hover:underline"> Forgot your password? </Link> */}
                             </div>
                             {/*Button*/}
                             <div className="mt-6">

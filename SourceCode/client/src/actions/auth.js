@@ -69,14 +69,13 @@ export const updateInfo = (id, updatedInfo, ref) => async (dispatch) =>{
   }
 }
 
-export const resetPwd = async (formData, router, ref) => {
+export const resetPwd = async (id, formData, ref) => {
   try {
     //await api.resetPwd(formData);
-    const { data } = await api.resetPwd(formData);
-
+    await api.resetPwd(id, formData);
+    ref.current.innerHTML = "Yes! Sucessfully Updated!";
+    ref.current.style.visibility="visible";
     // dispatch({ type: AUTH, data });
-
-    router('/auth');
   } catch (error) {
     ref.current.innerHTML = error.response.data.message;
     ref.current.style.visibility="visible";

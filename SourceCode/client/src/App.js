@@ -4,15 +4,17 @@ import Home from './pages/Home/Home';
 import Auth from './pages/Auth/Auth';
 import AccountSettings from './pages/AccountSettings/AccountSettings';
 import ProfileSettings from './pages/AccountSettings/ProfileSettings';
+import ResetPassword from './pages/AccountSettings/ResetPassword';
 import DeleteAccount from './pages/AccountSettings/DeleteAccount';
+
 import SellerCenter from './pages/SellerCenter/SellerCenter';
 import Slogin from './pages/SellerCenter/S_Login';
 import Sregister from './pages/SellerCenter/S_Register';
+
 import SellerManagement from './pages/SellerManagement/SellerManagement';
 import Delete from './pages/SellerManagement/Delete';
 import Dashboard from './pages/SellerManagement/Dashboard';
 import GeneralInfo from './pages/SellerManagement/GeneralInfo';
-import ForgetPassword from './pages/ForgetPassword';
 
 const App = () => {
     return (
@@ -24,7 +26,7 @@ const App = () => {
                         <Route index element={<Navigate to={'profile'} />} />
                         <Route path="profile" element={<ProfileSettings />} />
                         <Route path="delete" element={<DeleteAccount />} />
-                        <Route path="resetPwd" element={<ForgetPassword />} />
+                        <Route path="resetPwd" element={<ResetPassword />} />
                     </Route>
                     <Route path="/sellerAuth" element={<SellerCenter />} >
                         <Route index element={<Navigate to={'login'} />}/>
@@ -37,7 +39,6 @@ const App = () => {
                         <Route path="generalInfo" element={<GeneralInfo />} />
                         <Route path="delete" element={<Delete />} />
                     </Route>
-                    <Route path="/forgetPwd" element={<ForgetPassword />} />
                 </Routes>
             </BrowserRouter>
     );
