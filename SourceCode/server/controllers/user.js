@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import express from 'express';
 import mongoose from 'mongoose';
 
+import { stripe } from "../utils/stripe.js";
 import UserModal from "../models/user.js";
 import user from "../models/user.js";
 const secret = 'test';
@@ -18,7 +19,8 @@ export const login = async (req, res) => {
     if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials - Incorrect Password" });
 
     const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: "1h" });
-    res.status(200).json({ result: oldUser, token });
+    // res.status(200).json({ result: oldUser, token });
+    res.status(200).json({ result: oldUser, token , stripeCustomerId: oldUser.stripeCustomerId});
   } catch (err) {
     res.status(500).json({ message: "Something went wrong" });
   }
@@ -33,11 +35,20 @@ export const register = async (req, res) => {
     
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    const result = await UserModal.create({ email, password: hashedPassword, phone, username });
+    //create new stripe member here
+    const customer = await stripe.customers.create({
+      email,
+    },
+    {
+      apiKey: "sk_test_51MmLUyAaUjfR3qEUoqPd1W0YVIqe3vzt356fGQfJTT0X8KJZG0NXHIhJ8yQb6nSER5sZCmaknO13bRAbDx1Dirjb006ExhI7LX"
+    });
+
+    const result = await UserModal.create({ email, password: hashedPassword, phone, username, stripeCustomerId: customer.id });
 
     const token = jwt.sign( { email: result.email, id: result._id, phone: result.phone, username: result.username }, secret, { expiresIn: "1h" } );
 
-    res.status(200).json({ result, token });
+    // res.status(200).json({ result, token });
+    res.status(200).json({ result: { ...result, stripeCustomerId: customer.id }, token });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
     console.log(error);

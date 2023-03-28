@@ -1,0 +1,53 @@
+  .subscription-success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('https://img.freepik.com/free-photo/explosion-colored-powder-white-background_1112-1562.jpg?w=2000&t=st=1679014852~exp=1679015452~hmac=92911a7d42bbfa7bee951fb7fc500267891175fce89bf993ec4ece1306a7010a');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .subscription-success-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .subscription-success-container p {
+    font-size: 1.5rem;
+    color: #666;
+    text-align: center;
+  }
+  
+  .go-to-homepage-btn {
+    margin-top: 30px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .go-to-homepage-btn:hover {
+    background-color: #555;
+  }
+
+  .congratulations-title {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

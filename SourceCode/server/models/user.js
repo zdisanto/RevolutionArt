@@ -6,6 +6,7 @@ const userSchema = mongoose.Schema({
   phone: {type: String, required: false },
   username: {type: String, required: false},
   id: { type: String },
+  stripeCustomerId: { type: String},
 });
 
 export default mongoose.model("User", userSchema);

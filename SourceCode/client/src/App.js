@@ -16,6 +16,12 @@ import Delete from './pages/SellerManagement/Delete';
 import Dashboard from './pages/SellerManagement/Dashboard';
 import GeneralInfo from './pages/SellerManagement/GeneralInfo';
 
+import Subscription from './pages/Subscription/Subscription';
+import SubscriptionSuccess from './pages/Subscription/Success';
+import Articles from './pages/Subscription/Articles';
+import SellerSubscription from './pages/Subscription/SellerSubscription';
+import SellerArticles from './pages/Subscription/SellerArticles';
+
 const App = () => {
     return (
             <BrowserRouter>
@@ -27,6 +33,7 @@ const App = () => {
                         <Route path="profile" element={<ProfileSettings />} />
                         <Route path="delete" element={<DeleteAccount />} />
                         <Route path="resetPwd" element={<ResetPassword />} />
+                        <Route path="articles" element={<Articles />} />
                     </Route>
                     <Route path="/sellerAuth" element={<SellerCenter />} >
                         <Route index element={<Navigate to={'login'} />}/>
@@ -38,7 +45,13 @@ const App = () => {
                         <Route path="dashboard" element={<Dashboard />} />
                         <Route path="generalInfo" element={<GeneralInfo />} />
                         <Route path="delete" element={<Delete />} />
+                        <Route path="articles" element={<SellerArticles />} />
                     </Route>
+                    {/* subscription route */}
+                    <Route path="/subscription" element={<Subscription />} />
+                    <Route path="/sellersubscription" element={<SellerSubscription />} />
+                    <Route path="/subscriptionsuccess" element={<SubscriptionSuccess />} />
+                    {/* <Route path="/articles" element={<Articles />} /> */}
                 </Routes>
             </BrowserRouter>
     );

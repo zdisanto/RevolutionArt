@@ -24,6 +24,9 @@ const AccountSettings = () => {
               <NavLink to="/accountsettings/profile" className={highlight} >Profile</NavLink>
             </li>
             <li>
+              <NavLink to="/accountsettings/articles" className={highlight} >Subscriptions</NavLink>
+            </li>
+            <li>
               <NavLink to="/accountsettings/resetPwd" className={highlight} >Reset Password</NavLink>
             </li>
             <li>

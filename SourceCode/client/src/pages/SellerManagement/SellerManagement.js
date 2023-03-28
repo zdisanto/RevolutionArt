@@ -41,7 +41,10 @@ const SellerManagement = () => {
               <NavLink to="/sellerCenter/dashboard" className={highlight}>DASHBOARD</NavLink>
             </li>
             <li className='h-12 w-full flex border border-gray-600 items-center justify-center'>
-              <NavLink to="/sellerCenter/generalInfo" className={highlight}>General Information</NavLink>
+              <NavLink to="/sellerCenter/generalInfo" className={highlight}>GENERAL INFORMATION</NavLink>
+            </li>
+            <li className='h-12 w-full flex border border-gray-600 items-center justify-center'>
+              <NavLink to="/sellerCenter/articles" className={highlight} >SUBSCRIPTIONS</NavLink>
             </li>
             <li className='h-12 w-full flex border border-gray-600 items-center justify-center'>
               <NavLink to="/sellerCenter/delete" className={highlight} >DELETE ACCOUNT</NavLink>

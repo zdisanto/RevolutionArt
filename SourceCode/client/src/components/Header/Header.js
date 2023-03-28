@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { CiMail, CiWallet, CiSettings, CiCircleQuestion, CiDollar, CiLocationOn, CiSearch, CiShoppingCart, CiStar, CiUser } from "react-icons/ci";
+import { CiMail, CiWallet, CiSettings, CiCircleQuestion, CiDollar, CiLocationOn, CiSearch, CiShoppingCart, CiStar, CiUser, CiAt } from "react-icons/ci";
 import {SiSellfy} from "react-icons/si";
 import { Avatar} from '@material-ui/core';
 
@@ -151,6 +151,11 @@ const Header = ({ onButtonClick }) => {
                                     <CiDollar alt="user-profile"/>
                                     <p className="text-sm pl-10">Transactions</p>
                                 </div>
+                                {/* divider */}
+                                <Link to="/subscription" className='flex pl-6 py-2 hover:bg-gray-100'>
+                                    <CiAt alt="user-profile"/>
+                                    <p className="text-sm pl-10">Subscriptions</p>
+                                </Link>
                                 {/* divider */}
                                 <div className='flex pl-6 py-2 hover:bg-gray-100'>
                                     <CiWallet alt="user-profile"/>

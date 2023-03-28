@@ -7,6 +7,7 @@ const sellerSchema = mongoose.Schema({
     phone: { type: String, required: true },
     password: { type: String, required: true },
     id: { type: String },
+    stripeCustomerId: { type: String},
 })
 
 export default mongoose.model("Seller", sellerSchema);

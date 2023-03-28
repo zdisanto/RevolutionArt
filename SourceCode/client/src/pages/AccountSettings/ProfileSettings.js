@@ -67,7 +67,7 @@ const ProfileSettings = () => {
                   />
                 </label>
                 <div className="pt-10">
-                        <button type="submit" className="font-thin text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out w-full bg-green-200 hover:bg-green-600 text-white focus:outline-none focus-visible:ring-2">SUBMIT</button>
+                        <button type="submit" className="font-thin text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out w-full bg-green-200 hover:bg-green-600 text-white focus:outline-none focus-visible:ring-2">Confirom to Update General Infomation</button>
                         <Alert className='invisible mt-4' ref={ref_updateInfo} severity="success"></Alert>
                 </div>
               </form>

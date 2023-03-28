@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import nodemailer from 'nodemailer';
 
 import SellerModal from "../models/seller.js";
+import { stripe } from "../utils/stripe.js";
 
 const secret = 'test';
 
@@ -17,12 +18,21 @@ export const s_register = async (req, res) => {
       if (oldSeller) return res.status(400).json({ message: "Seller already exists or change your email" });
 
       const hashedPassword = await bcrypt.hash(password, 12);
+
+      //create new stripe member here
+      const customer = await stripe.customers.create({
+        email,
+      },
+      {
+        apiKey: "sk_test_51MmLUyAaUjfR3qEUoqPd1W0YVIqe3vzt356fGQfJTT0X8KJZG0NXHIhJ8yQb6nSER5sZCmaknO13bRAbDx1Dirjb006ExhI7LX"
+      });
   
-      const result = await SellerModal.create({ name, gallery_name, email, phone, password: hashedPassword });
+      const result = await SellerModal.create({ name, gallery_name, email, phone, password: hashedPassword, stripeCustomerId: customer.id });
   
       const token = jwt.sign( { email: result.email, id: result._id }, secret, { expiresIn: "1h" } );
   
-      res.status(200).json({ result, token });
+      // res.status(200).json({ result, token });
+      res.status(200).json({ result: { ...result, stripeCustomerId: customer.id }, token });
     } catch (error) {
       res.status(500).json({ message: "Something went wrong" });
       console.log(error);
@@ -43,7 +53,8 @@ export const s_login = async (req, res) => {
 
     const token = jwt.sign({ email: oldSeller.email, id: oldSeller._id }, secret, { expiresIn: "1h" });
 
-    res.status(200).json({ result: oldSeller, token });
+    // res.status(200).json({ result: oldSeller, token });
+    res.status(200).json({ result: oldSeller, token, stripeCustomerId: oldSeller.stripeCustomerId });
   } catch (err) {
     res.status(500).json({ message: "Something went wrong" });
   }
