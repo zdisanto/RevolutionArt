@@ -12,21 +12,17 @@ This repository will potentially change over the lifetime (September 2022 - May 
 <details>
  <summary>Run Locally</summary>
  
-Ensure you have the latest version of Node on your local machine. We recommend using Node Version Manager to install and manage multiple Node versions: NVM
-
-To run the client locally, from the client directory, run ```npm start```. A server should start on ```localhost:3000/```
+- Ensure you have the latest version of Node on your local machine. We recommend using Node Version Manager (NVM) to install and manage multiple Node versions.
+  - To run the client locally, from the client directory, run ```npm start```. A server should start on ```localhost:3000/```
 </details>
 
 <details>
  <summary>Developing Locally</summary>
  
-Clone this repo to your local machine
-
-Before starting a new feature, run ```git pull``` to get the most up to date files.
-
-Make code changes to your local branch.
-
-To commit your changes locally, run ```git add .```, then ```git commit -m '[message describing commit]'```.
+- Clone this repo to your local machine
+- Before starting a new feature, run ```git pull``` to get the most up to date files.
+- Make code changes to your local branch.
+- To commit your changes locally, run ```git add .```, then ```git commit -m '[message describing commit]'```.
 </details>
 
 <details>
