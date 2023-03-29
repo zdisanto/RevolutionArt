@@ -42,9 +42,9 @@ To commit your changes locally, run ```git add .```, then ```git commit -m '[mes
     - ```cd client```
     - ```npm start```
       - If there is an error here, try typing ```npm install```, if a different error occurs, type ```npm install --force```. That should work, so now you can type ```npm start```.
-  - Your default browser should open up a tap with ```localhost:3000``` in it (if you have an older computer, it may take a little time).
-    - However if it takes more than 3min, in the terminal type ```control``` + ```c``` to stop the ```localhost``` from running and retype ```npm start```.
-- Now that you have that up and running, go back to VS Code and open a second terminal window (**DO NOT** close the first one), and in it type the following commands:
+  - Your default browser should open up a tab with ```localhost:3000``` in it (if you have an older computer, it may take a little time).
+    - However if it takes more than 3min, in the terminal type ```control``` + ```c``` (on Macs) to stop the ```localhost``` from running and retype ```npm start```. It should work now.
+- Now that you have that up and running, go back to VS Code and open a *second* terminal window (**DO NOT** close the first one), and in it type the following commands:
   - ```cd server```
   - ```npm install```
   - ```npm start```
