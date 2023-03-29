@@ -23,6 +23,34 @@ Make code changes to your local branch.
 
 To commit your changes locally, run ```git add .```, then ```git commit -m '[message describing commit]'```.
 
+## For Testing Purposes
+- Go to the "Code" drop down button: 
+
+![code](https://user-images.githubusercontent.com/70993217/228628715-aa6ffaf9-f21d-40bf-ab9d-651d4b640b67.png)
+  - Select "Download ZIP".
+- Once that is finished downloading (fairly quick), open up the folder "SourceCode" in VS Code:
+
+![SourceCode](https://user-images.githubusercontent.com/70993217/228632519-90f0b176-94d9-4d6b-a981-fbb605c0e479.png)
+  - Your file hierarchy should look like: 
+
+![vsCode](https://user-images.githubusercontent.com/70993217/228629339-f175309d-f336-408d-9da7-39053635080e.png)
+- Open the "server" folder and open the ```index.js``` file.
+  - Scroll down to line 30 and comment it out (```CMD``` + ```/``` on Macs)
+  - Now, uncomment line 31 and save the file.
+- Open the terminal in VS Code.
+  - Type the following commands:
+    - ```cd client```
+    - ```npm start```
+      - If there is an error here, try typing ```npm install```, if a different error occurs, type ```npm install --force```. That should work, so now you can type ```npm start```.
+  - Your default browser should open up a tap with ```localhost:3000``` in it (if you have an older computer, it may take a little time).
+    - However if it takes more than 3min, in the terminal type ```control``` + ```c``` to stop the ```localhost``` from running and retype ```npm start```.
+- Now that you have that up and running, go back to VS Code and open a second terminal window (<span style="color: red;">DO NOT</span> close the first one), and in it type the following commands:
+  - ```cd server```
+  - ```npm install```
+  - ```npm start```
+- When that is finished, go back to your default browser and refresh your ```localhost```.
+
+If you have any questions or errors, please reach out to Zo or Kishore.
 
 ## Course Descriptions:
 
