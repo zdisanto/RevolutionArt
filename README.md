@@ -6,15 +6,21 @@ The complete repository for CS691: Project 1 & CS692: Research Project
 
 ## Project Application: Online Art Gallery - _Revolution Art_
 
-This repository will potentially change over the lifetime of the production of _Revolution Art_.
+This repository will potentially change over the lifetime (September 2022 - May 2023) of the production of _Revolution Art_.
 
 ## Requirements to Run Revolution Art Locally
+<details>
+ <summary>Follow these steps:</summary>
+ 
 Ensure you have the latest version of Node on your local machine. We recommend using Node Version Manager to install and manage multiple Node versions: NVM
 
 To run the client locally, from the client directory, run ```npm start```. A server should start on ```localhost:3000/```
+</details>
 
 ## Developing Locally
-
+<details>
+ <summary>Follow these steps:</summary>
+ 
 Clone this repo to your local machine
 
 Before starting a new feature, run ```git pull``` to get the most up to date files.
@@ -22,8 +28,12 @@ Before starting a new feature, run ```git pull``` to get the most up to date fil
 Make code changes to your local branch.
 
 To commit your changes locally, run ```git add .```, then ```git commit -m '[message describing commit]'```.
+</details>
 
 ## For Testing Purposes
+<details>
+ <summary>Follow these steps:</summary>
+ 
 - Go to the "Code" drop down button: 
 
 ![code](https://user-images.githubusercontent.com/70993217/228628715-aa6ffaf9-f21d-40bf-ab9d-651d4b640b67.png)
@@ -51,6 +61,7 @@ To commit your changes locally, run ```git add .```, then ```git commit -m '[mes
 - When that is finished, go back to your default browser and refresh your ```localhost```.
 
 If you have any questions or errors, please reach out to Zo or Kishore.
+</details>
 
 ## Course Descriptions:
 
