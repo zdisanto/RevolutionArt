@@ -8,18 +8,17 @@ The complete repository for CS691: Project 1 & CS692: Research Project
 
 This repository will potentially change over the lifetime (September 2022 - May 2023) of the production of _Revolution Art_.
 
-## Requirements to Run Revolution Art Locally
+## Requirements to Access Revolution Art Locally
 <details>
- <summary>Follow these steps:</summary>
+ <summary>Run Locally</summary>
  
 Ensure you have the latest version of Node on your local machine. We recommend using Node Version Manager to install and manage multiple Node versions: NVM
 
 To run the client locally, from the client directory, run ```npm start```. A server should start on ```localhost:3000/```
 </details>
 
-## Developing Locally
 <details>
- <summary>Follow these steps:</summary>
+ <summary>Developing Locally</summary>
  
 Clone this repo to your local machine
 
@@ -30,9 +29,8 @@ Make code changes to your local branch.
 To commit your changes locally, run ```git add .```, then ```git commit -m '[message describing commit]'```.
 </details>
 
-## For Testing Purposes
 <details>
- <summary>Follow these steps:</summary>
+ <summary>For Testing Purposes</summary>
  
 - Go to the "Code" drop down button: 
 
