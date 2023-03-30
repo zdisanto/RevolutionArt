@@ -19,15 +19,15 @@ const SellerArticles = () => {
   return (
     <>
       {articles.length ? (
-        <div className="plan-container">
-            <div className="title-article"><h2>Your Subscription at a Glance</h2></div>
+        <div className="h-full w-full">
+            <div className="text-center text-2xl font-bold"><h2>Your Subscription at a Glance</h2></div>
 
           {articles.map((article) => (
             <div>
-            <div className="article-card" key={article.id}>
-              <img src={article.imageUrl} alt={article.title} />
-              <h2>{article.title}</h2>
-              <p>{article.content}</p>
+            <div key={article.id}>
+              <img className="w-5/6 h-5/6 mx-20" src={article.imageUrl} alt={article.title} />
+              <h2 className="text-center py-4 font-bold">{article.title}</h2>
+              <p className="mx-20">{article.content}</p>
             </div>
             </div>
           ))}

@@ -87,9 +87,9 @@ const Subscription = () => {
   }
 
   return (
-    <div className='h-full w-full'>
+    <div className='h-full w-full mx-44 my-20'>
     {/* <div><BackButton/></div> */}
-      <div className='px-14 pb-5'>
+      <div className='px-14 pb-5 mx-32'>
         <h1>Choose your <span>subscription plan</span></h1>
       </div>
       <div className='flex bg-white p-4 rounded-xl'>
