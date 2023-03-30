@@ -6,23 +6,56 @@ The complete repository for CS691: Project 1 & CS692: Research Project
 
 ## Project Application: Online Art Gallery - _Revolution Art_
 
-This repository will potentially change over the lifetime of the production of _Revolution Art_.
+This repository will potentially change over the lifetime (September 2022 - May 2023) of the production of _Revolution Art_.
 
-## Requirements to Run Revolution Art Locally
-Ensure you have the latest version of Node on your local machine. We recommend using Node Version Manager to install and manage multiple Node versions: NVM
+## Requirements to Access Revolution Art Locally
+<details>
+ <summary>Run Locally</summary>
+ 
+- Ensure you have the latest version of Node on your local machine. We recommend using Node Version Manager (NVM) to install and manage multiple Node versions.
+  - To run the client locally, from the client directory, run ```npm start```. A server should start on ```localhost:3000/```
+</details>
 
-To run the client locally, from the client directory, run ```npm start```. A server should start on ```localhost:3000/```
+<details>
+ <summary>Developing Locally</summary>
+ 
+- Clone this repo to your local machine
+- Before starting a new feature, run ```git pull``` to get the most up to date files.
+- Make code changes to your local branch.
+- To commit your changes locally, run ```git add .```, then ```git commit -m '[message describing commit]'```.
+</details>
 
-## Developing Locally
+<details>
+ <summary>For Testing Purposes</summary>
+ 
+- Go to the "Code" drop down button: 
 
-Clone this repo to your local machine
+![code](https://user-images.githubusercontent.com/70993217/228628715-aa6ffaf9-f21d-40bf-ab9d-651d4b640b67.png)
+  - Select "Download ZIP".
+- Once that is finished downloading (fairly quick), open up the folder "SourceCode" in VS Code:
 
-Before starting a new feature, run ```git pull``` to get the most up to date files.
+![SourceCode](https://user-images.githubusercontent.com/70993217/228632519-90f0b176-94d9-4d6b-a981-fbb605c0e479.png)
+  - Your file hierarchy should look like: 
 
-Make code changes to your local branch.
+![vsCode](https://user-images.githubusercontent.com/70993217/228629339-f175309d-f336-408d-9da7-39053635080e.png)
+- Open the "server" folder and open the ```index.js``` file.
+  - Scroll down to line 30 and comment it out (```CMD``` + ```/``` on Macs)
+  - Now, uncomment line 31 and save the file.
+- Open the terminal in VS Code.
+  - Type the following commands:
+    - ```cd client```
+    - ```npm start```
+      - If there is an error here, try typing ```npm install```, if a different error occurs, type ```npm install --force```. That should work, so now you can type ```npm start```.
+  - Your default browser should open up a tab with ```localhost:3000``` in it (if you have an older computer, it may take a little time).
+    - However if it takes more than 3min, in the terminal type ```control``` + ```c``` (on Macs) to stop the ```localhost``` from running and retype ```npm start```. It should work now.
+- Now that you have that up and running, go back to VS Code and open a *second* terminal window (**DO NOT** close the first one), and in it type the following commands:
+  - ```cd server```
+  - ```npm install```
+  - ```npm start```
+- When that is finished, go back to your default browser and refresh your ```localhost```.
 
-To commit your changes locally, run ```git add .```, then ```git commit -m '[message describing commit]'```.
-
+If you have any questions or errors, please reach out to Zo or Kishore.
+</details>
 
 ## Course Descriptions:
 
