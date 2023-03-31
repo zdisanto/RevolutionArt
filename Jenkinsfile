@@ -1,33 +1,48 @@
 pipeline {
   agent any
   
-  // Define email recipient(s)
-  def emailRecipients = 'revolutionart2023@gmail.com'
-
-  // Define email subject and body
-  def emailSubject = 'Jenkins Build Report'
-  def emailBody = 'Revolution Art-Jenkins Build Report'
-
-  // Define email attachments
-  def emailAttachments = [
-    [$class: 'LogFileAttachmentEntry', logFile: 'console.log']
-  ]
-
+//   tools {
+//     nodejs "16.17.0"
+//     pm2 "pm2"
+//   }
+  
+  environment {
+        AWS_DEFAULT_REGION = 'us-east-1'
+  }
+  
   stages {
-    stage('Build') {
+    stage('Build'){
       steps {
-        // Your build steps here
+        sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+        sh 'pip3 install boto3 paramiko'
+        sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployBuildQa.py'
+        
       }
     }
-
-    // Add post-build step for email notification
+    stage('Test'){
+         steps{
+          sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+          sh 'pip3 install boto3 paramiko'
+          sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/testing.py'
+         }
+    }
+     stage('Deploy'){
+         steps{
+          sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+          sh 'pip3 install boto3 paramiko'
+          sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployToNginx.py'
+         }
+    }
+    
     post {
       always {
-        emailext attachLog: true, body: emailBody, subject: emailSubject, to: emailRecipients, attachments: emailAttachments
+        emailext attachLog: true, body: 'Revolution Art-Jenkins Build Report ', subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
       }
     }
   }
+  
 }
+
 
 
 
