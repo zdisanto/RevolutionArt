@@ -34,7 +34,13 @@ pipeline {
          }
          post {
            always {
-             emailext attachLog: true, body: 'Revolution Art-Jenkins Build Report ', subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
+             emailext attachLog: true, 
+               body: '''Greetings Revolution Art,
+This email is to notify you that the latest Jenkins build has completed.
+
+Please find the build log attached.
+''', 
+               subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
            }
          }
     }
@@ -42,6 +48,60 @@ pipeline {
   }
   
 }
+
+
+
+
+
+
+
+
+
+// pipeline {
+//   agent any
+  
+//   environment {
+//         AWS_DEFAULT_REGION = 'us-east-1'
+//   }
+  
+//   stages {
+//     stage('Build'){
+//       steps {
+//         sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+//         sh 'pip3 install boto3 paramiko'
+//         sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployBuildQa.py'
+        
+//       }
+//       post {
+//         always {
+//           emailext attachLog: true, body: 'Revolution Art-Jenkins Build Report ', subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
+//         }
+//       }
+//     }
+//     stage('Test'){
+//          steps{
+//           sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+//           sh 'pip3 install boto3 paramiko'
+//           sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/testing.py'
+//          }
+//     }
+//      stage('Deploy'){
+//          steps{
+//           sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+//           sh 'pip3 install boto3 paramiko'
+//           sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployToNginx.py'
+//          }
+//          post {
+//            always {
+//              emailext attachLog: true, 
+//                body: 'Revolution Art-Jenkins Build Report', subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
+//            }
+//          }
+//     }
+    
+//   }
+  
+// }
 
 
 
