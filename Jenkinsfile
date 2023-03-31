@@ -39,6 +39,9 @@ pipeline {
 This email is to notify you that the latest Jenkins build has completed.
 
 Please find the build log attached.
+
+Regards,
+Devs
 ''', 
                subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
            }
