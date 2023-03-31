@@ -1,11 +1,6 @@
 pipeline {
   agent any
   
-//   tools {
-//     nodejs "16.17.0"
-//     pm2 "pm2"
-//   }
-  
   environment {
         AWS_DEFAULT_REGION = 'us-east-1'
   }
@@ -17,6 +12,11 @@ pipeline {
         sh 'pip3 install boto3 paramiko'
         sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployBuildQa.py'
         
+      }
+      post {
+        always {
+          emailext attachLog: true, body: 'Revolution Art-Jenkins Build Report ', subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
+        }
       }
     }
     stage('Test'){
@@ -32,16 +32,17 @@ pipeline {
           sh 'pip3 install boto3 paramiko'
           sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployToNginx.py'
          }
+         post {
+           always {
+             emailext attachLog: true, body: 'Revolution Art-Jenkins Build Report ', subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
+           }
+         }
     }
     
-    post {
-      always {
-        emailext attachLog: true, body: 'Revolution Art-Jenkins Build Report ', subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
-      }
-    }
   }
   
 }
+
 
 
 
