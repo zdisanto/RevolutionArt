@@ -9,6 +9,7 @@ import sellerRouter from './routes/seller.js';
 import subsRoutes from './routes/subs.js';
 import subssellerRoutes from './routes/subsSeller.js'
 import articlesRoutes from './routes/articles.js';
+import artworkRoutes from './routes/artworks.js';
 
 const app = express();
 //dotenv.config();
@@ -22,6 +23,8 @@ app.use(express.urlencoded({extended:false}));
 
 app.use('/user', userRouter);
 app.use('/seller', sellerRouter);
+app.use('/artworks', artworkRoutes);
+
 app.use("/subs", subsRoutes );
 app.use("/subsseller", subssellerRoutes);
 app.use("/articles", articlesRoutes );

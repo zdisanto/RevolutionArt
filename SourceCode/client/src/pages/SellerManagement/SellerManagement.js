@@ -41,6 +41,9 @@ const SellerManagement = () => {
               <NavLink to="/sellerCenter/dashboard" className={highlight}>DASHBOARD</NavLink>
             </li>
             <li className='h-12 w-full flex border border-gray-600 items-center justify-center'>
+              <NavLink to="/sellerCenter/addartwork" className={highlight}>ADD AN ARTWORK</NavLink>
+            </li>
+            <li className='h-12 w-full flex border border-gray-600 items-center justify-center'>
               <NavLink to="/sellerCenter/generalInfo" className={highlight}>GENERAL INFORMATION</NavLink>
             </li>
             <li className='h-12 w-full flex border border-gray-600 items-center justify-center'>

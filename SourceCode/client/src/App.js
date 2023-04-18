@@ -15,6 +15,7 @@ import SellerManagement from './pages/SellerManagement/SellerManagement';
 import Delete from './pages/SellerManagement/Delete';
 import Dashboard from './pages/SellerManagement/Dashboard';
 import GeneralInfo from './pages/SellerManagement/GeneralInfo';
+import MyArtworks from './pages/SellerManagement/MyArtworks';
 
 import Subscription from './pages/Subscription/Subscription';
 import SubscriptionSuccess from './pages/Subscription/Success';
@@ -43,6 +44,7 @@ const App = () => {
                     <Route path="/sellerCenter" element={<SellerManagement />} >
                         <Route index element={<Navigate to={'dashboard'} />} />
                         <Route path="dashboard" element={<Dashboard />} />
+                        <Route path="addartwork" element={<MyArtworks/>} />
                         <Route path="generalInfo" element={<GeneralInfo />} />
                         <Route path="delete" element={<Delete />} />
                         <Route path="articles" element={<SellerArticles />} />
