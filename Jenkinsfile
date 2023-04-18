@@ -1,11 +1,6 @@
 pipeline {
   agent any
   
-//   tools {
-//     nodejs "16.17.0"
-//     pm2 "pm2"
-//   }
-  
   environment {
         AWS_DEFAULT_REGION = 'us-east-1'
   }
@@ -17,6 +12,11 @@ pipeline {
         sh 'pip3 install boto3 paramiko'
         sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployBuildQa.py'
         
+      }
+      post {
+        always {
+          emailext attachLog: true, body: 'Revolution Art-Jenkins Build Report ', subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
+        }
       }
     }
     stage('Test'){
@@ -32,11 +32,139 @@ pipeline {
           sh 'pip3 install boto3 paramiko'
           sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployToNginx.py'
          }
+         post {
+           always {
+             emailext attachLog: true, 
+               body: '''Greetings Revolution Art,
+This email is to notify you that the latest Jenkins build has completed.
+
+Please find the build log attached.
+
+Regards,
+Devs
+''', 
+               subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
+           }
+         }
     }
     
   }
   
 }
+
+
+
+
+
+
+
+
+
+// pipeline {
+//   agent any
+  
+//   environment {
+//         AWS_DEFAULT_REGION = 'us-east-1'
+//   }
+  
+//   stages {
+//     stage('Build'){
+//       steps {
+//         sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+//         sh 'pip3 install boto3 paramiko'
+//         sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployBuildQa.py'
+        
+//       }
+//       post {
+//         always {
+//           emailext attachLog: true, body: 'Revolution Art-Jenkins Build Report ', subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
+//         }
+//       }
+//     }
+//     stage('Test'){
+//          steps{
+//           sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+//           sh 'pip3 install boto3 paramiko'
+//           sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/testing.py'
+//          }
+//     }
+//      stage('Deploy'){
+//          steps{
+//           sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+//           sh 'pip3 install boto3 paramiko'
+//           sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployToNginx.py'
+//          }
+//          post {
+//            always {
+//              emailext attachLog: true, 
+//                body: 'Revolution Art-Jenkins Build Report', subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
+//            }
+//          }
+//     }
+    
+//   }
+  
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// pipeline {
+//   agent any
+  
+// //   tools {
+// //     nodejs "16.17.0"
+// //     pm2 "pm2"
+// //   }
+  
+//   environment {
+//         AWS_DEFAULT_REGION = 'us-east-1'
+//   }
+  
+//   stages {
+//     stage('Build'){
+//       steps {
+//         sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+//         sh 'pip3 install boto3 paramiko'
+//         sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployBuildQa.py'
+        
+//       }
+//     }
+//     stage('Test'){
+//          steps{
+//           sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+//           sh 'pip3 install boto3 paramiko'
+//           sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/testing.py'
+//          }
+//     }
+//      stage('Deploy'){
+//          steps{
+//           sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
+//           sh 'pip3 install boto3 paramiko'
+//           sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployToNginx.py'
+//          }
+//     }
+    
+//   }
+  
+// }
+
+
+
+
+
+
   
 //   stages {
 //       stage('Test My Web Server') {
