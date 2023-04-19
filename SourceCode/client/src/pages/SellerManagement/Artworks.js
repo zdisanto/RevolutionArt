@@ -8,9 +8,9 @@ const Artworks = ({setCurrentId}) => {
 
   return (
     !posts.length? <CircularProgress/> :(
-      <Grid className='flex flex-row justify-between items-center p-4 h-full bg-pink-300 overflow-y-scroll' container spacing={1}>
+      <Grid className='flex flex-row justify-between items-center' container>
         {posts?.map((post) => (
-          <Grid key={post._id} item xs={12} sm={12} md={12}>
+          <Grid key={post._id} item xs={6} sm={6} md={6}>
             <Artwork post={post} setCurrentId={setCurrentId}/>
           </Grid>
         ))}

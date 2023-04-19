@@ -2,10 +2,10 @@ import { START_LOADING, CREATE, FETCH_ALL, END_LOADING, S_DELETE_ARTWORK, S_UPDA
 
 import * as api from '../api/index.js';
 
-export const getPosts = () => async (dispatch) => {
+export const getPosts = (id) => async (dispatch) => {
   try {
     //dispatch({ type: START_LOADING });
-    const { data } = await api.fetchPosts();
+    const { data } = await api.fetchPosts(id);
 
     dispatch({ type: FETCH_ALL, payload: data });
     //dispatch({ type: END_LOADING });

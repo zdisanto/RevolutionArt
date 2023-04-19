@@ -8,13 +8,14 @@ import AddArtwork from './AddArtwork'
 import { getPosts } from '../../actions/artworks';
 
 const MyArtworks = () => {
+  const seller = JSON.parse(localStorage.getItem('seller_profile'));
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
   const { posts } = useSelector((state) => state.artworks);
   const classes = useStyles();
 
   useEffect(()=>{
-    dispatch(getPosts());
+    dispatch(getPosts(seller.result._id));
   },[dispatch]);
 
 
@@ -24,9 +25,9 @@ const MyArtworks = () => {
       <div className='h-full w-1/2'>
         <AddArtwork currentId={currentId} setCurrentId={setCurrentId}/>
       </div>
-      <div className='h-full w-1/2'>
+      <div className='w-1/2'>
         <Grid item xs={12} sm={12} md={12}>
-          <Artworks setCurrentId={setCurrentId}/>
+          <Artworks className='overflow-auto h-1/2' setCurrentId={setCurrentId}/>
         </Grid>
       </div>
     </div>

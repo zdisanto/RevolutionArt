@@ -8,11 +8,9 @@ const router = express.Router();
 const secret = 'test'; 
 
 export const getArtwork = async (req, res) => {
-    
-    // const { page } = req.query;
-    // console.log("我在这儿计算页码"+page);
+    const {id}=req.params;
     try {
-        const artworks=await Artworks.find();
+        const artworks=await Artworks.find({creator:id});
         res.status(200).json(artworks);
     } catch (error) {    
         res.status(404).json({ message: error.message });
@@ -23,7 +21,7 @@ export const addArtwork = async(req, res) => {
     
     const post = req.body;
 
-    const newPostMessage = new Artworks({ ...post, creator: req.userId, createdAt: new Date().toISOString() })
+    const newPostMessage = new Artworks({ ...post, createdAt: new Date().toISOString() })
 
     try {
         await newPostMessage.save();

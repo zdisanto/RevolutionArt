@@ -5,7 +5,7 @@ import { addArtwork, getArtwork, deleteArtwork, updateArtwork } from '../control
 
 import auth from "../middleware/s_auth.js";
 
-router.get("/", getArtwork);
+router.get("/:id", getArtwork);
 router.post("/", addArtwork);
 router.delete("/:id", deleteArtwork);
 router.patch('/:id', updateArtwork);

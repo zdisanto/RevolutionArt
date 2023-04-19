@@ -23,14 +23,14 @@ export default makeStyles({
   },
   overlay: {
     position: 'absolute',
-    top: '20px',
+    top: '10px',
     left: '20px',
     color: 'white',
   },
   overlay2: {
     position: 'absolute',
-    top: '20px',
-    right: '20px',
+    top: '5px',
+    right: '5px',
     color: 'white',
   },
   grid: {
@@ -39,13 +39,13 @@ export default makeStyles({
   details: {
     display: 'flex',
     justifyContent: 'space-between',
-    margin: '20px',
+    margin: '10px',
   },
   title: {
-    padding: '0 16px',
+    padding: '0 10px',
   },
   cardActions: {
-    padding: '0 16px 8px 16px',
+    padding: '0 10px 8px 10px',
     display: 'flex',
     justifyContent: 'space-between',
   },

@@ -9,18 +9,18 @@ import { addArtwork, updateArtwork} from '../../actions/artworks';
 import useStyles from './styles';
 
 const AddArtwork = ({ currentId, setCurrentId }) => {
+    const seller = JSON.parse(localStorage.getItem('seller_profile'));
     const classes = useStyles();
-    const [postData, setPostData] = useState({ title: '', description: '', tags: [], selectedFile: '' });
+    const [postData, setPostData] = useState({ title: '', creator: seller.result._id, description: '', tags: [], selectedFile: '' });
     
     const post = useSelector((state) => currentId? state.artworks.find((p) => p._id === currentId) : null);
     const dispatch = useDispatch();
   
-    const seller = JSON.parse(localStorage.getItem('seller_profile'));
     const history = useNavigate();
 
     const clear = () => {
         setCurrentId(0);
-        setPostData({ title: '', description: '', tags: [], selectedFile: '' });
+        setPostData({ title: '', creator: '', description: '', tags: [], selectedFile: '' });
       };
     
       useEffect(() => {
@@ -30,13 +30,10 @@ const AddArtwork = ({ currentId, setCurrentId }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-        if(currentId==0){
-          dispatch(addArtwork({ ...postData, name: seller?.result?.gallery_name }, history));
-          clear();
-        }else{
-          dispatch(updateArtwork(currentId, { ...postData, name: seller?.result?.gallery_name }));
-          clear();
-        }
+        if(currentId==0) dispatch(addArtwork({ ...postData, creator: seller.result._id }, history));
+        else dispatch(updateArtwork(currentId, { ...postData, creator: seller.result._id }));
+        
+        clear();
     };
 
     const handleAddChip = (tag) => {
@@ -64,8 +61,8 @@ const AddArtwork = ({ currentId, setCurrentId }) => {
           />
         </div>
         <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
-        <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-        <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
+        <button className='w-full bg-green-200 hover:bg-green-500 text-white p-3 rounded-md' variant="contained" size="large" type="submit" fullWidth>SUMIT</button>
+        {/* <button className='w-full bg-red-200 hover:bg-red-500 text-white p-2 rounded-md mt-2' variant="contained" size="small" onClick={clear} fullWidth>Clear</button> */}
       </form>
     </Paper>
   )

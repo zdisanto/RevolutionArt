@@ -32,7 +32,7 @@ export const forgotPwd = (email) => sellerAPI.post('/seller/forgotPwd', email);
 export const s_getInfo = (id) => sellerAPI.get(`/seller/${id}`);
 export const s_updateInfo = (id, updatedInfo) => sellerAPI.patch(`/seller/${id}`, updatedInfo);
 
-export const fetchPosts = () => sellerAPI.get('/artworks');
+export const fetchPosts = (id) => sellerAPI.get(`/artworks/${id}`);
 export const add_artwork = (newArtwork) => sellerAPI.post('/artworks', newArtwork);
 export const likePost = (id) => sellerAPI.patch(`/posts/${id}/likePost`);
 export const updateArtwork = (id, updatedPost) => sellerAPI.patch(`/artworks/${id}`, updatedPost);

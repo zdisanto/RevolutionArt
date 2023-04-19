@@ -58,12 +58,12 @@ const SellerManagement = () => {
           </div>
         </div>
         {/* display area */}
-        <div className="w-3/4 h-screen bg-white">
+        <div className="w-3/4 h-full bg-white">
           <div className='flex w-full h-20'>
             <p className='flex justify-center items-center w-3/4 text-xl font-bold'>Seller Management Center<IoStorefront className='ml-3'/></p>
             <p className='flex justify-center items-center  text-gray-500 text-sm w-1/4'>Welcome,<span className=' text-black ml-2'>{gallery}</span></p>
           </div>
-          <div className='h-full mr-10 rounded-xl bg-gray-100 pt-10 px-16'>
+          <div className='mr-10 rounded-xl bg-gray-100 p-10'>
             <Outlet />
           </div>
         </div>
