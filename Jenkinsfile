@@ -5,6 +5,10 @@ pipeline {
         AWS_DEFAULT_REGION = 'us-east-1'
   }
   
+  options {
+  buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '27', daysToKeepStr: '', numToKeepStr: '27')
+  }
+
   stages {
     stage('JIRA'){
       steps{
