@@ -10,13 +10,10 @@ pipeline {
   }
 
   stages {
-    stage('JIRA'){
-      steps{
-        jiraComment body: 'Jenkins Build was successful - Build logs sent to "revolutionart@gmail.com" ', issueKey: 'TEAM-204'
-      }
-    }
+
     stage('Build'){
       steps {
+        sh 'echo "/Users/kishorekanchan/Workspace/JenkinsAutomation/deployBuildQa.p" > path.txt'
         sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
         sh 'pip3 install boto3 paramiko'
         sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployBuildQa.py'
@@ -40,6 +37,7 @@ pipeline {
           sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
           sh 'pip3 install boto3 paramiko'
           sh 'python3 /Users/kishorekanchan/Workspace/JenkinsAutomation/deployToNginx.py'
+          archiveArtifacts(artifacts: '**/*.txt', followSymlinks: false)
          }
          post {
            always {
