@@ -6,6 +6,11 @@ pipeline {
   }
   
   stages {
+    stage('JIRA'){
+      steps{
+        jiraComment body: 'Jenkins Build was successful - Build logs sent to "revolutionart@gmail.com" ', issueKey: 'TEAM-204'
+      }
+    }
     stage('Build'){
       steps {
         sh 'export PYTHONPATH=$PATH_TO_MODULE:$PYTHONPATH'
