@@ -38,9 +38,10 @@ This repository will potentially change over the lifetime (September 2022 - May 
   - Your file hierarchy should look like: 
 
 ![vsCode](https://user-images.githubusercontent.com/70993217/228629339-f175309d-f336-408d-9da7-39053635080e.png)
+<!-- 
 - Open the "server" folder and open the ```index.js``` file.
   - Scroll down to line 30 and comment it out (```CMD``` + ```/``` on Macs)
-  - Now, uncomment line 31 and save the file.
+  - Now, uncomment line 31 and save the file. -->
 - Open the terminal in VS Code.
   - Type the following commands:
     - ```cd client```
