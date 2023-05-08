@@ -1,4 +1,4 @@
-import { START_LOADING, CREATE, FETCH_ALL, END_LOADING, S_DELETE_ARTWORK, S_UPDATE, S_LIKE } from '../constants/actionTypes';
+import { START_LOADING, CREATE, FETCH_ALL, END_LOADING, S_DELETE_ARTWORK, S_UPDATE, LIKE } from '../constants/actionTypes';
 
 import * as api from '../api/index.js';
 
@@ -6,6 +6,20 @@ export const getPosts = (id) => async (dispatch) => {
   try {
     //dispatch({ type: START_LOADING });
     const { data } = await api.fetchPosts(id);
+
+    dispatch({ type: FETCH_ALL, payload: data });
+    //dispatch({ type: END_LOADING });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getAllPosts = () => async (dispatch) => {
+  try {
+    //dispatch({ type: START_LOADING });
+    const { data } = await api.fetchAllPosts();
+
+    console.log(data.length);
 
     dispatch({ type: FETCH_ALL, payload: data });
     //dispatch({ type: END_LOADING });
@@ -37,13 +51,13 @@ export const addArtwork = (new_artwork, router) => async (dispatch) => {
     }
   };
   
-  export const likePost = (id) => async (dispatch) => {
+  export const likePost = (id) => async (dispatch) => {//post_id
     const user = JSON.parse(localStorage.getItem('profile'));
   
     try {
       const { data } = await api.likePost(id, user?.token);
-  
-      dispatch({ type: S_LIKE, payload: data });
+      console.log("有likes吗？"+data);
+      dispatch({ type: LIKE, payload: data });
     } catch (error) {
       console.log(error);
     }

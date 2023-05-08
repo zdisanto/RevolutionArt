@@ -14,6 +14,6 @@ export const END_LOADING = 'END_LOADING'
 export const FETCH_ALL = 'FETCH_ALL';
 export const S_UPDATE = 'S_UPDATE';
 export const S_DELETE_ARTWORK = 'S_DELETE_ARTWORK'
-export const S_LIKE = 'S_LIKE';
+export const LIKE = 'LIKE';
 
 

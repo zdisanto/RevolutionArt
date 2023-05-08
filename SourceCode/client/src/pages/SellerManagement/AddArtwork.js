@@ -22,11 +22,11 @@ const AddArtwork = ({ currentId, setCurrentId }) => {
         setCurrentId(0);
         setPostData({ title: '', creator: '', description: '', tags: [], selectedFile: '' });
       };
-    
-      useEffect(() => {
+
+    useEffect(() => {
         if (post) setPostData(post);
-      }, [post]);
-    
+    }, [post]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
     
@@ -39,10 +39,11 @@ const AddArtwork = ({ currentId, setCurrentId }) => {
     const handleAddChip = (tag) => {
         setPostData({ ...postData, tags: [...postData.tags, tag] });
       };
-    
+
     const handleDeleteChip = (chipToDelete) => {
         setPostData({ ...postData, tags: postData.tags.filter((tag) => tag !== chipToDelete) });
     };
+
   return (
     <Paper className={classes.paper} elevation={6}>
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
@@ -61,7 +62,7 @@ const AddArtwork = ({ currentId, setCurrentId }) => {
           />
         </div>
         <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
-        <button className='w-full bg-green-200 hover:bg-green-500 text-white p-3 rounded-md' variant="contained" size="large" type="submit" fullWidth>SUMIT</button>
+        <button className='w-full bg-green-200 hover:bg-green-500 text-white p-3 rounded-md' variant="contained" size="large" type="submit" fullWidth>SUBMIT</button>
         {/* <button className='w-full bg-red-200 hover:bg-red-500 text-white p-2 rounded-md mt-2' variant="contained" size="small" onClick={clear} fullWidth>Clear</button> */}
       </form>
     </Paper>

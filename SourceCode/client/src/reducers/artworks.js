@@ -1,6 +1,6 @@
 import * as actionType from '../constants/actionTypes';
 
-export default (posts= [], action) => {
+export default (posts=[],action) => {
   switch (action.type) {
     case actionType.START_LOADING:
       return posts;
@@ -14,6 +14,8 @@ export default (posts= [], action) => {
       return posts.map((post) => (post._id === action.payload._id ? action.payload : post));
     case actionType.S_DELETE_ARTWORK:
       return posts.filter((post) => post._id !== action.payload);
+    case actionType.LIKE:
+      return posts.map((post) => (post._id === action.payload._id ? action.payload : post));
     default:
       return posts;
   }

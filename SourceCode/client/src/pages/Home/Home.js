@@ -7,6 +7,7 @@ import Header from '../../components/Header/Header';
 import CardsWellsh from '../../components/Cards/CardsWellsh';
 import Footer from '../../components/Footer/Footer';
 import Section from '../../components/Hero/Section';
+import AllArtworks from '../../components/ArtworksDisplay/AllArtworks';
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,6 +24,7 @@ const Home = () => {
         <div>
             <Section/>
             <CardsWellsh/>
+            <AllArtworks/>
             <div className='flex items-center justify-center'>
               <Modal 
                 isOpen={isModalOpen} 
