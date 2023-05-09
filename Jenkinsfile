@@ -10,7 +10,12 @@ pipeline {
   }
 
   stages {
-
+    stage('Slack') {
+      steps {
+        slackSend message: 'QA Pipleline Build Complete - Status: SUCCESS '
+      }
+    }
+    
     stage('Build'){
       steps {
         sh 'echo "/Users/kishorekanchan/Workspace/JenkinsAutomation/deployBuildQa.p" > path.txt'
