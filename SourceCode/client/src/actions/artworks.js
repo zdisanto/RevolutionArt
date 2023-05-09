@@ -56,7 +56,6 @@ export const addArtwork = (new_artwork, router) => async (dispatch) => {
   
     try {
       const { data } = await api.likePost(id, user?.token);
-      console.log("有likes吗？"+data);
       dispatch({ type: LIKE, payload: data });
     } catch (error) {
       console.log(error);
