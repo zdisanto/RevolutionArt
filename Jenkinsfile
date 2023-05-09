@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage('JIRA') {
       steps {
-        jiraComment body: 'QA Pipleline Build Complete - Status: SUCCESS', issueKey: 'TEAM-234'
+        jiraComment body: 'QA Pipleline Build Complete - Status: SUCCESS', issueKey: 'REV-1'
       }
     }
     
