@@ -10,6 +10,12 @@ pipeline {
   }
 
   stages {
+    stage('JIRA') {
+      steps {
+        jiraComment body: 'QA Pipleline Build Complete - Status: SUCCESS', issueKey: 'TEAM-234'
+      }
+    }
+    
     stage('Slack') {
       steps {
         slackSend message: 'QA Pipleline Build Complete - Status: SUCCESS '
