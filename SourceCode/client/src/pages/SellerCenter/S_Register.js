@@ -30,10 +30,10 @@ const S_Register = () => {
         <div className="space-y-4">
             {/* <!-- Name --> */}
             <div>
-              <label class="block text-sm font-medium mb-1" for="card-email">Name <span class="text-red-500">*</span></label>
+              <label className="block text-sm font-medium mb-1" htmlFor="card-email">Name <span className="text-red-500">*</span></label>
               <input 
                 name="name"  
-                class="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
+                className="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
                 type="name" 
                 placeholder="Alex Yax" 
                 onChange={handleChange}
@@ -48,10 +48,10 @@ const S_Register = () => {
             {errors.name && <p className='text-red-600 text-xs'>Please input valid name, such as Shanshan Li</p>}
             {/* <!-- Gallery Name --> */}
             <div>
-              <label class="block text-sm font-medium mb-1" for="card-email">Gallery Name<span class="text-red-500">*</span></label>
+              <label className="block text-sm font-medium mb-1" htmlFor="card-email">Gallery Name<span className="text-red-500">*</span></label>
               <input 
                 name="gallery_name"  
-                class="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
+                className="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
                 type="gallery_name" 
                 placeholder="Momo Gallery" 
                 onChange={handleChange}
@@ -66,10 +66,10 @@ const S_Register = () => {
             {errors.gallery_name && <p className='text-red-600 text-xs'>Please input valid gallery name, such as Momo Gallery</p>}
             {/* <!-- Email --> */}
             <div>
-              <label class="block text-sm font-medium mb-1" for="card-email">Email <span class="text-red-500">*</span></label>
+              <label className="block text-sm font-medium mb-1" htmlFor="card-email">Email <span className="text-red-500">*</span></label>
               <input 
                 name="email"  
-                class="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
+                className="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
                 type="email" 
                 placeholder="xxx@company.com" 
                 onChange={handleChange}
@@ -83,10 +83,10 @@ const S_Register = () => {
             {errors.email && <p className='text-red-600 text-xs'>Please input valid email address</p>}
             {/* <!-- Phone Number --> */}
             <div>
-              <label class="block text-sm font-medium mb-1" for="card-email">Phone<span class="text-red-500">*</span></label>
+              <label className="block text-sm font-medium mb-1" htmlFor="card-email">Phone<span className="text-red-500">*</span></label>
               <input 
                 name="phone"  
-                class="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
+                className="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
                 type="phone" 
                 placeholder="646-976-2345" 
                 onChange={handleChange}
@@ -100,7 +100,7 @@ const S_Register = () => {
             {errors.phone && <p className='text-red-600 text-xs'>Please input valid 10-digit phone number such as 646-975-1268 or 6469751268</p>}
             {/* <!-- Password --> */}
             <div>
-              <label className="block text-sm font-medium mb-1" for="card-name">Password <span className="text-red-500">*</span></label>
+              <label className="block text-sm font-medium mb-1" htmlFor="card-name">Password <span className="text-red-500">*</span></label>
               <input 
                 name="password" 
                 className="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
@@ -116,7 +116,7 @@ const S_Register = () => {
             {errors.password && <p className='text-red-600 text-xs'>Password must contains capital letter, lowercase letter, digit and the length bettwen 6 and 15</p>}
             {/* confirmPassword */}
             <div>
-              <label className="block text-sm font-medium mb-1" for="card-name">Confirm Password <span className="text-red-500">*</span></label>
+              <label className="block text-sm font-medium mb-1" htmlFor="card-name">Confirm Password <span className="text-red-500">*</span></label>
               <input 
                 name="confirmPassword" 
                 className="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 

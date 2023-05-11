@@ -8,6 +8,7 @@ const sellerSchema = mongoose.Schema({
     password: { type: String, required: true },
     id: { type: String },
     stripeCustomerId: { type: String},
+    subscriptionInfo : {type: Object, required: false}
 })
 
 export default mongoose.model("Seller", sellerSchema);

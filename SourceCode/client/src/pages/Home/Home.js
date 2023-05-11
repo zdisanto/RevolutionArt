@@ -31,6 +31,7 @@ const Home = () => {
                 onRequestClose={toggleModal} 
                 contentLabel="Example Modal" 
                 className='bg-white absolute w-1/2 h-1/2 left-1/4 right-1/4 top-1/4 bottom-1/4 rounded-lg'
+                appElement={document.getElementById('root')}
                 overlayClassName="fixed inset-0 bg-gray-500 bg-opacity-75"
               >
                 <div className="flex justify-end">

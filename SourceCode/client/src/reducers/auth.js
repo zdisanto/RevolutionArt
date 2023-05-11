@@ -1,6 +1,8 @@
 import * as actionType from '../constants/actionTypes';
 
-const authReducer = (state = { authData: null }, action) => {
+
+// Added loading and errors key in initial state with default value
+const authReducer = (state = { authData: null, loading: true, errors: null }, action) => {
   switch (action.type) {
     case actionType.AUTH:
       localStorage.setItem('profile', JSON.stringify({ ...action?.data }));

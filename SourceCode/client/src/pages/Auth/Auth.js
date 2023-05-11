@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef} from 'react';
 import {Error, ErrorOutline} from '@material-ui/icons';
 import Alert from '@mui/material/Alert';
@@ -132,10 +133,10 @@ const Auth = () => {
                             <div className="space-y-4">
                                 {/* <!-- Email --> */}
                                 <div>
-                                        <label class="block text-sm font-medium mb-1" for="card-email">Email <span class="text-red-500">*</span></label>
+                                        <label className="block text-sm font-medium mb-1" for="card-email">Email <span className="text-red-500">*</span></label>
                                         <input 
                                           name="email"  
-                                          class="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
+                                          className="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
                                           type="email" 
                                           placeholder="xxx@company.com" 
                                           onChange={handleChange}
@@ -183,27 +184,27 @@ const Auth = () => {
                                 {errors2.confirmPassword && <p className='text-red-600 text-xs'>{errors2.confirmPassword.message}</p>}
                                 {/* phone */}
                                 <div>
-                                        <label class="block text-sm font-medium mb-1" for="card-email">Phone</label>
+                                        <label className="block text-sm font-medium mb-1" for="card-email">Phone</label>
                                         <input 
                                           name="phone"  
-                                          class="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
+                                          className="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
                                           type="phone" 
                                           placeholder="xxx-xxx-xxxx" 
                                           onChange={handleChange}
                                           {...register2("phone",
                                             {
                                               required: false,
-                                              pattern: /^\d{3}-\d{3}-\d{4}$/
+                                              pattern: /^\d{3}-?\d{3}-?\d{4}$/
                                             })}
                                         />
                                 </div>
                                 {errors2.phone && <p className='text-red-600 text-xs'>Please input valid 10-digit phone</p>}
                                 {/* username */}
                                 <div>
-                                        <label class="block text-sm font-medium mb-1" for="card-email">Username</label>
+                                        <label className="block text-sm font-medium mb-1" for="card-email">Username</label>
                                         <input 
                                           name="username"  
-                                          class="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
+                                          className="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
                                           type="text" 
                                           placeholder="username" 
                                           onChange={handleChange}

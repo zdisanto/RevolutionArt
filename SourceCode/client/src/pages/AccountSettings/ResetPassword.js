@@ -32,10 +32,10 @@ const ResetPassword = () => {
             <div className="space-y-4">
                 {/* <!-- old email --> */}
                 <div>
-                        <label class="block text-sm font-medium mb-1" for="card-email">Old Password <span class="text-red-500">*</span></label>
+                        <label className="block text-sm font-medium mb-1" for="card-email">Old Password <span className="text-red-500">*</span></label>
                         <input 
                             name="oldPassword"  
-                            class="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
+                            className="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
                             type="password" 
                             placeholder="xxxxxxxxxxx" 
                             // value={activate ? user.result.email : null}

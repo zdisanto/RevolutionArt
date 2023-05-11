@@ -45,7 +45,7 @@ const GeneralInfo = () => {
   return (
     <div className='flex justify-center'>
       <div className='w-2/3'>
-              <label className="block text-sm font-medium mb-1" for="card-email">Email:</label>
+              <label className="block text-sm font-medium mb-1" htmlFor="card-email">Email:</label>
               <div className='w-full h-10 pl-4 bg-gray-200 rounded-md flex items-center'>{seller.email}</div>
               <form className='flex flex-col pt-2 my-6 rounded-lg' onSubmit={handleSubmit}>
                 <label className='pt-3'>

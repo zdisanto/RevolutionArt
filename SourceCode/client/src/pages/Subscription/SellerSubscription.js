@@ -51,7 +51,7 @@ const SellerSubscription = () => {
   }, []);
 
   const fetchPrices = async () => {
-    const { data: response } = await axios.get("http://localhost:5000/subsseller/subsprices");
+    const { data: response } = await axios.get(process.env.REACT_APP_SERVER_URL + "/subsseller/subsprices");
     console.log(response);
     setPrices(response.data);
   };
@@ -76,7 +76,7 @@ const SellerSubscription = () => {
   };
 
   const createSession = async (priceId) => {
-    const { data: response } = await axios.post("http://localhost:5000/subsseller/subssession",
+    const { data: response } = await axios.post(process.env.REACT_APP_SERVER_URL + "/subsseller/subssession",
       {
         priceId,
       })

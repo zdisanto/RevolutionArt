@@ -41,7 +41,7 @@ const S_Login = () => {
         <div className="space-y-4">
             {/* <!-- Email --> */}
             <div>
-                    <label className="block text-sm font-medium mb-1" for="card-email">Email <span className="text-red-500">*</span></label>
+                    <label className="block text-sm font-medium mb-1" htmlFor="card-email">Email <span className="text-red-500">*</span></label>
                     <input 
                       name="email"  
                       className="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
@@ -57,7 +57,7 @@ const S_Login = () => {
             {errors.email && <p className='text-red-600 text-xs'>Please input valid email address</p>}
             {/* <!-- Password --> */}
             <div>
-                    <label className="block text-sm font-medium mb-1" for="card-name">Password <span className="text-red-500">*</span></label>
+                    <label className="block text-sm font-medium mb-1" htmlFor="card-name">Password <span className="text-red-500">*</span></label>
                     <input 
                       name="password" 
                       className="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 
@@ -100,7 +100,7 @@ const S_Login = () => {
                 <form className='px-24 w-full bg-white' onSubmit={handleSubmit1(handleResetPwd)}>
                   <div className=''>
                     <div>
-                        <label className="block text-sm font-medium mb-1" for="card-email">Email Address<span className="text-red-500">*</span></label>
+                        <label className="block text-sm font-medium mb-1" htmlFor="card-email">Email Address<span className="text-red-500">*</span></label>
                         <input 
                           name="email"  
                           className="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" 

@@ -16,4 +16,7 @@ export const S_UPDATE = 'S_UPDATE';
 export const S_DELETE_ARTWORK = 'S_DELETE_ARTWORK'
 export const LIKE = 'LIKE';
 
+export const ADD_SUBS_INFO = 'ADD_SUBS_INFO';
+export const UPDATE_SUBS_INFO = 'UPDATE_SUBS_INFO';
+
 

@@ -7,6 +7,7 @@ const userSchema = mongoose.Schema({
   username: {type: String, required: false},
   id: { type: String },
   stripeCustomerId: { type: String},
+  subscriptionInfo : {type: Object, required: false}
 });
 
 export default mongoose.model("User", userSchema);

@@ -11,7 +11,7 @@ const Articles = () => {
   }, []);
 
   const fetchArticles = async () => {
-    const response = await axios.get("http://localhost:5000/articles");
+    const response = await axios.get(process.env.REACT_APP_SERVER_URL + "/articles");
     setArticles(response.data);
   };
 

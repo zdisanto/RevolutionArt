@@ -88,7 +88,6 @@ export const updateUserInfo = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No User with id: ${id}`);
   const updatedInfo = await UserModal.findByIdAndUpdate(id, newInfo, { new: true});
 
-  console.log(updatedInfo);
   res.status(200).json(updatedInfo);
 }
 
