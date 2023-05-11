@@ -246,10 +246,7 @@ const Subscription = ({
           {prices.map((price) => {
             if (price.nickname === "Elite") {
               const bulletPoints = [
-                "Access to exclusive art pieces",
-                "Discounts on selected art pieces",
-                "Exclusive art-related content via email",
-                "Priority notification for new art arrivals",
+                "Elite Plan",
               ];
               return (
                 <SubscriptionBox
@@ -260,10 +257,7 @@ const Subscription = ({
               );
             } else if (price.nickname === "Ultra Elite") {
               const bulletPoints = [
-                "Access to even more exclusive and rare art pieces",
-                "Higher discounts on selected art pieces",
-                "Priority access to art events and exhibitions",
-                "Personalized art recommendations via email",
+                "Ultra Elite Plan",
               ];
               return (
                 <SubscriptionBox
@@ -274,11 +268,7 @@ const Subscription = ({
               );
             } else if (price.nickname === "VIP") {
               const bulletPoints = [
-                "Access to the most exclusive and unique art pieces",
-                "The highest discounts on selected art pieces",
-                "Priority access to private art collections and exclusive events",
-                "Personalized art consultations and recommendations via email",
-                "Invitation-only art auctions and sales.",
+                "VIP Plan",
               ];
               return (
                 <SubscriptionBox
