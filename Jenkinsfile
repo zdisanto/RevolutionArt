@@ -10,17 +10,6 @@ pipeline {
   }
 
   stages {
-    stage('JIRA') {
-      steps {
-        jiraComment body: 'QA Pipleline Build Complete - Status: SUCCESS', issueKey: 'REV-1'
-      }
-    }
-    
-    stage('Slack') {
-      steps {
-        slackSend message: 'QA Pipleline Build Complete - Status: SUCCESS '
-      }
-    }
     
     stage('Build'){
       steps {
@@ -64,6 +53,12 @@ Devs
                subject: 'Jenkins Build Report', to: 'revolutionart2023@gmail.com'
            }
          }
+    }
+    
+        stage('Notification') {
+      steps {
+        slackSend message: 'QA Pipleline Build Complete - Status: SUCCESS '
+      }
     }
     
   }
