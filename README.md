@@ -46,7 +46,7 @@ This repository will potentially change over the lifetime (September 2022 - May 
   - Type the following commands:
     - ```cd client```
     - ```npm start```
-      -  Please reach out to Zo, Shanshan or Kishore for the updated ```.env``` file for the ```server``` folder. 
+      -  Please reach out to Zo, Shanshan or Kishore for the updated ```.env``` file for the ```server``` folder [code worn't run without this]. 
       - If there is an error here, try typing ```npm install```, if a different error occurs, type ```npm install --force```. That should work, so now you can type ```npm start```.
   - Your default browser should open up a tab with ```localhost:3000``` in it (if you have an older computer, it may take a little time).
     - However if it takes more than 3min, in the terminal type ```control``` + ```c``` (on Macs) to stop the ```localhost``` from running and retype ```npm start```. It should work now.
